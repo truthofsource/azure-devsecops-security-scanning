@@ -145,6 +145,10 @@ The tools cover different risks, but they also create more results to review. So
 | Why does a fixed issue still appear? | Confirm the new software version was packaged and checked. |
 | Why does the website check see only sign-in? | Confirm the test account signed in and the intended pages were reached. |
 
+## Troubleshooting Lessons
+
+A completed scanner command did not establish complete coverage. Other investigations showed why aggregate authentication metrics and browser-helper failures also needed independent evidence. [Read the incident, evidence and verification](docs/LESSONS-LEARNED.md).
+
 ## Boundaries
 
 This public project draws on actual Azure engineering work, with identifying details removed and fictional examples. It contains no employee records or live credentials. Malware scanning of uploaded documents remains a [separate project](https://github.com/truthofsource/secure-serverless-document-processing), because checking a user's file is a different control from checking application releases.
