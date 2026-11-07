@@ -16,13 +16,27 @@ I combined four security tools, each with a different job. Together they check s
 
 **Business outcome:** The team has a clearer view of several kinds of security risk and the work needed to address them. Recorded software updates removed seven entries from the findings report. Other findings remained visible for follow-up.
 
+## Tools Used and What They Do
+
+| Tool or service | What it does | Where it fits |
+| --- | --- | --- |
+| Trivy | Check dependencies and selected container contents for known weaknesses. | Actual scanner role; package inventory and completion must be established. |
+| Checkov | Review infrastructure configuration against its rule set. | Actual IaC scanner; source results are separate from live resource state. |
+| TruffleHog and Git | Inspect selected files/history for possible leaked credentials. | Actual secret-detection boundary; raw candidates remain private. |
+| OWASP ZAP | Observe the selected web/API behavior, including bounded signed-in requests. | Actual runtime-security boundary, not whole-platform assurance. |
+| Playwright and Chromium | Support the platform’s browser-session and PDF acceptance checks. | Acceptance utilities; not a replacement for ZAP or a live session in the demo. |
+| Docker and Terraform | Supply image targets and infrastructure source to the relevant checks. | Inputs/build infrastructure, not additional equivalent scanners. |
+| Python and GitHub Actions | Run the combined public contract examples. | Manual-only reference CI; it does not run all four real scanners or deploy Azure. |
+
+The component folders retain their original source mappings. The tools answer different questions, and no single green result establishes that every layer is secure.
+
 ## Step by Step
 
 A short walkthrough of the process, with technical instructions and evidence limits in the sections below.
 
 1. **Choose the change to check** — Identify the code, cloud setup or application version under review. Keep the results tied to that specific version.
 
-2. **Run the checks for each risk** — TruffleHog looks for exposed secrets, Checkov reviews cloud setup instructions and Trivy checks software weaknesses. ZAP separately observes selected website and server requests, including signed-in access.
+2. **Run the checks for each risk (Trivy, Checkov, TruffleHog and ZAP)** — TruffleHog looks for exposed secrets, Checkov reviews cloud setup instructions and Trivy checks software weaknesses. ZAP separately observes selected website and server requests, including signed-in access.
 
 3. **Review and repair the findings** — Confirm that each check finished and investigate its findings. Apply suitable fixes and test that the application still works.
 
