@@ -12,9 +12,9 @@ The engineering challenge was to combine useful checks without publishing creden
 
 ## The Solution
 
-Use four complementary tools, keep evidence tied to the code or image actually checked, and separate a finished scan from an acceptable release. Review findings, fix what can be fixed, test compatibility and keep unresolved work visible.
+Use four complementary tools and record the code or container version each one checked. Confirm both that a scan finished and that its findings meet the release requirements. Review findings, fix what can be fixed, test compatibility and keep unresolved work visible.
 
-**Business outcome:** Security review covers several failure modes rather than depending on one scanner. Recorded fixes removed seven vulnerability occurrences; remaining software and infrastructure findings stayed visible. A limited authenticated test also checked permitted and denied access without exposing private responses.
+**Business outcome:** Security review covers several failure modes rather than depending on one scanner. Recorded fixes removed seven reported vulnerability entries; remaining software and infrastructure findings stayed visible. A limited authenticated test also checked permitted and denied access without exposing private responses.
 
 ## What Each Tool Checks
 
@@ -38,16 +38,16 @@ flowchart LR
     E --> F[Test compatible release in nonproduction]
     F --> G[ZAP: selected signed-in and denied requests]
     G --> H[Record evidence and release decision]
-    H --> I[Deploy the verified artifact]
+    H --> I[Deploy the tested release files]
 ```
 
-This diagram explains the review sequence. It does not claim every stage is enforced automatically in every deployment. The copied reference code and each tool's evidence document its implemented scope.
+This diagram explains the review sequence. It does not claim every stage is enforced automatically in every deployment. The included code and results show which checks were implemented.
 
 ## What Was Built
 
-- Trusted secret-scan handling that keeps candidate values out of public summaries and prevents proposed changes from choosing their own rules.
+- Secret scanning that keeps possible credential values out of public summaries and uses rules from the trusted base version of the repository.
 - Infrastructure rule review with visible failures, documented follow-up and related Terraform examples.
-- Dependency/container finding summaries, software inventories and a separate release rule for fixable High/Critical issues.
+- Software and container findings, package inventories, and a release rule that blocks High or Critical issues when a fix is available.
 - Authenticated passive web/API checks that compare allowed and denied responses while excluding tokens and private response bodies.
 - Local demonstrations, focused tests, screenshots, commands, source mappings and operating guidance for all four components.
 
@@ -55,11 +55,11 @@ The component folders retain their original layout so commands and relative link
 
 ## Proof It Works
 
-These are **dated implementation receipts retained from the original projects**, not a fresh scan of today's platform:
+These are **historical scan and test results from the original projects**. They are not a fresh assessment of the platform:
 
 | Layer | Recorded evidence | What it establishes |
 | --- | --- | --- |
-| Trivy | Seven vulnerability occurrences removed; 21 Medium and one Low remained in the recorded source scan. | Fixes were measured without claiming a completely clean release. |
+| Trivy | Seven reported vulnerability entries removed; 21 Medium and one Low remained in the recorded source scan. | Fixes were measured without claiming a completely clean release. |
 | Checkov | 508 resources across 228 inputs; 211 passed, 106 failed; no skipped checks or parsing errors. | The scan completed and its outstanding failures were preserved. Counts describe checks, not unique resources. |
 | TruffleHog | Three reviewed candidates identified as public package hashes. | Narrow candidate review without broad future exclusions. |
 | ZAP | Ten read-only requests across four server handlers; two informational cache observations and no Low/Medium/High alerts in that sample. | Limited authenticated coverage, not assurance about untested routes. |
@@ -91,15 +91,15 @@ Actual scanner commands and prerequisites are documented separately: [Trivy](too
 
 The root GitHub Actions check is manual-only and runs these local examples. It does not run the four real scanners, deploy Azure resources or prove current cloud security. No Actions run was dispatched to publish this consolidation.
 
-Local consolidation validation: **52 tests passed; two optional integration tests skipped**. [Full validation scope](docs/VALIDATION.md).
+Checks after combining the projects: **52 tests passed; two optional integration tests skipped**. [Full validation scope](docs/VALIDATION.md).
 
 ## Operations, Scaling and Tradeoffs
 
-Start with changed files and selected images for quick feedback, then schedule broader coverage separately. Reuse a verified scanner installation or image and retain small summaries plus the exact checked version. Keep raw secret candidates and authenticated traffic private.
+Check changed files and affected container images for quick feedback, then run broader scans separately. Reuse a verified scanner installation or image and retain small summaries plus the exact checked version. Keep raw secret candidates and authenticated traffic private.
 
 As the platform grows, assign findings to service owners, give exceptions expiry dates, and separate package updates from infrastructure changes that affect cost or connectivity. Broader authenticated coverage needs explicit route and role inventories; active testing needs a separate safe target and authorization.
 
-Four tools add maintenance, report volume and false-positive review. Their value comes from different coverage, a clear repair process and honest remaining-work records—not from the number of tools or an all-green badge.
+Four tools add maintenance, report volume and false-positive review. Their value comes from complementary coverage, a clear repair process and visible follow-up work.
 
 ## Troubleshooting
 

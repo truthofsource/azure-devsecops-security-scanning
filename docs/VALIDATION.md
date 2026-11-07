@@ -1,4 +1,4 @@
-# Consolidation validation ? November 6, 2026
+# Combined-project checks - November 6, 2026
 
 This pass verified that combining the existing projects preserves their behavior
 and evidence. It did not run new cloud scans or remediate additional findings.
@@ -19,5 +19,5 @@ and evidence. It did not run new cloud scans or remediate additional findings.
 Total: 54 discovered tests, 52 passed and two optional integration tests skipped.
 No GitHub Actions run, Azure deployment, live ZAP traffic or credential validation
 was triggered for this consolidation. Existing screenshots remain local reference
-views, not fresh production captures. Source findings in the README remain dated
-receipts; consult the individual component evidence for their original scope.
+views, not fresh production captures. The scan results in the README remain historical
+results; consult the individual component evidence for their original scope.
