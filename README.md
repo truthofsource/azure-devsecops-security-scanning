@@ -2,7 +2,7 @@
 
 **Check for security problems in four different places, then keep track of the fixes.**
 
-[Business problem](#the-business-problem) · [What was built](#what-was-built) · [Proof](#proof-it-works) · [Run the examples](#run-the-examples)
+[Business problem](#the-business-problem) · [What was built](#what-was-built) · [Proof](#proof-it-works) · [Run the examples](#run-the-examples) · [Step by step](#step-by-step)
 
 ## The Business Problem
 
@@ -15,6 +15,18 @@ One tool cannot check all of these. I needed a way to bring the results together
 I combined four security tools, each with a different job. Together they check saved code, cloud setup, the software used by the application and selected pages after sign-in.
 
 **Business outcome:** The team has a clearer view of several kinds of security risk and the work needed to address them. Recorded software updates removed seven entries from the findings report. Other findings remained visible for follow-up.
+
+## Step by Step
+
+A short walkthrough of the process, with technical instructions and evidence limits in the sections below.
+
+1. **Choose the change to check** — Identify the code, cloud setup or application version under review. Keep the results tied to that specific version.
+
+2. **Run the checks for each risk** — TruffleHog looks for exposed secrets, Checkov reviews cloud setup instructions and Trivy checks software weaknesses. ZAP separately observes selected website and server requests, including signed-in access.
+
+3. **Review and repair the findings** — Confirm that each check finished and investigate its findings. Apply suitable fixes and test that the application still works.
+
+4. **Record the release decision** — Keep the results and unresolved work visible to the reviewer. A completed scan supports a decision but does not establish that the whole platform is secure.
 
 ## What Each Tool Checks
 
