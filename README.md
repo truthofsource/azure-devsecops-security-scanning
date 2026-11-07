@@ -51,7 +51,7 @@ This diagram explains the review sequence. It does not claim every stage is enfo
 - Authenticated passive web/API checks that compare allowed and denied responses while excluding tokens and private response bodies.
 - Local demonstrations, focused tests, screenshots, commands, source mappings and operating guidance for all four components.
 
-The component folders retain their original layout so commands and relative links continue to work. Their nested `.github` directories preserve reference workflows; only the root `.github/workflows` directory can define workflows for this repository.
+Each tool keeps its own folder, commands and guides. Their nested `.github` directories preserve reference workflows; only the root `.github/workflows` directory can define workflows for this repository.
 
 ## Proof It Works
 
@@ -95,7 +95,7 @@ Checks after combining the projects: **52 tests passed; two optional integration
 
 ## Operations, Scaling and Tradeoffs
 
-Check changed files and affected container images for quick feedback, then run broader scans separately. Reuse a verified scanner installation or image and retain small summaries plus the exact checked version. Keep raw secret candidates and authenticated traffic private.
+Check changed files and affected container images for quick feedback, then run broader scans separately. Reuse a verified scanner installation or image and retain small summaries plus the exact checked version. Keep possible secret values and signed-in web traffic private.
 
 As the platform grows, assign findings to service owners, give exceptions expiry dates, and separate package updates from infrastructure changes that affect cost or connectivity. Broader authenticated coverage needs explicit route and role inventories; active testing needs a separate safe target and authorization.
 
