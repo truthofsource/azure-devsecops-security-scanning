@@ -21,3 +21,11 @@ No GitHub Actions run, Azure deployment, live ZAP traffic or credential validati
 was triggered for this consolidation. Existing screenshots remain local reference
 views, not fresh production captures. The scan results in the README remain historical
 results; consult the individual component evidence for their original scope.
+
+## Plain-language review - November 7, 2026
+
+The main overview now starts with the business problem, the solution and the
+practical outcome. Technical commands and detailed results remain available in
+expandable sections and linked guides. Links, heading anchors, formatting and
+expandable sections were checked. Earlier code-test and cloud results remain
+historical; this wording pass did not repeat those tests.

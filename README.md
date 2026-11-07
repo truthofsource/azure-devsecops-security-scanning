@@ -1,59 +1,74 @@
 # Layered Security Testing for an Azure Platform
 
-**Find exposed secrets, risky infrastructure settings, vulnerable software and problems visible only after sign-in—then track the fixes.**
+**Check for security problems in four different places, then keep track of the fixes.**
 
 [Business problem](#the-business-problem) · [What was built](#what-was-built) · [Proof](#proof-it-works) · [Run the examples](#run-the-examples)
 
 ## The Business Problem
 
-A healthcare workforce platform handles private documents and staff-only actions. One security tool cannot check every way those records could be exposed. A clean container scan says little about a leaked key, an unsafe storage setting or a page that gives the wrong user access.
+The platform stores private staff records and supports actions that only certain people should perform. Problems can come from a leaked password, an unsafe cloud setting, insecure software or a website that gives the wrong person access.
 
-The engineering challenge was to combine useful checks without publishing credentials, hiding unfinished findings or consuming unnecessary pipeline minutes.
+One tool cannot check all of these. I needed a way to bring the results together and show what was fixed and what still needed attention.
 
 ## The Solution
 
-Use four complementary tools and record the code or container version each one checked. Confirm both that a scan finished and that its findings meet the release requirements. Review findings, fix what can be fixed, test compatibility and keep unresolved work visible.
+I combined four security tools, each with a different job. Together they check saved code, cloud setup, the software used by the application and selected pages after sign-in.
 
-**Business outcome:** Security review covers several failure modes rather than depending on one scanner. Recorded fixes removed seven reported vulnerability entries; remaining software and infrastructure findings stayed visible. A limited authenticated test also checked permitted and denied access without exposing private responses.
+**Business outcome:** The team has a clearer view of several kinds of security risk and the work needed to address them. Recorded software updates removed seven entries from the findings report. Other findings remained visible for follow-up.
 
 ## What Each Tool Checks
 
-| Tool | Main question | Strength | Limit or tradeoff |
-| --- | --- | --- | --- |
-| **[TruffleHog](tools/trufflehog/README.md)** | Did a credential enter the repository or its history? | Finds candidates even after their files were deleted. | Matches require private review; deleting a file does not revoke a real secret. This implementation disables online credential verification. |
-| **[Checkov](tools/checkov/README.md)** | Does the infrastructure code contain risky settings? | Flags problems before Azure resources are changed. | A failed rule needs context; code inspection does not prove the deployed setting or authorize paid changes. |
-| **[Trivy](tools/trivy/README.md)** | What vulnerable packages are in the application or image? | Covers software packages, container operating systems and SBOM inventories. | Results depend on the scanned version and advisory database. A package update still needs application testing. |
-| **[OWASP ZAP](tools/zap/README.md)** | How does the running web/API respond to selected users? | Observes runtime behavior, including signed-in and denied requests. | This example is a small passive, read-only sample; it is not a full penetration test. |
+| Tool | What it looks for | Why it helps |
+| --- | --- | --- |
+| **[TruffleHog](tools/trufflehog/README.md)** | Passwords, access keys or similar secrets accidentally saved in code, including older versions. | Editing a file does not remove a secret from its history. |
+| **[Checkov](tools/checkov/README.md)** | Risky settings in the instructions used to set up Azure resources. | Problems can be reviewed before those settings are applied. |
+| **[Trivy](tools/trivy/README.md)** | Software with known security weaknesses in the application or its packaged runtime. | The team can identify affected software and available updates. |
+| **[OWASP ZAP](tools/zap/README.md)** | Problems visible when selected users access the running website and its server functions. | It checks behavior that a review of saved files alone cannot establish. |
+
+A container is a package used to run an application and its supporting software. An API is the set of server functions a website or another program calls. Those terms appear in the detailed guides.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    A[Proposed code change] --> B[TruffleHog: secrets and history]
-    A --> C[Checkov: infrastructure settings]
-    A --> D[Trivy: dependencies and container image]
-    B --> E[Review findings and fix]
-    C --> E
-    D --> E
-    E --> F[Test compatible release in nonproduction]
-    F --> G[ZAP: selected signed-in and denied requests]
-    G --> H[Record evidence and release decision]
-    H --> I[Deploy the tested release files]
+  Change[Proposed change] --> Secrets[Check for leaked passwords and keys]
+  Change --> Settings[Check cloud setup instructions]
+  Change --> Software[Check software for known weaknesses]
+  Secrets --> Review[Review findings and make fixes]
+  Settings --> Review
+  Software --> Review
+  Review --> Test[Try the change in a test environment]
+  Test --> Website[Check selected website access]
+  Website --> Decide[Record results and decide whether to release]
 ```
 
-This diagram explains the review sequence. It does not claim every stage is enforced automatically in every deployment. The included code and results show which checks were implemented.
+This shows how the checks fit together. The guides explain which steps were automated and which required separate review.
 
 ## What Was Built
 
-- Secret scanning that keeps possible credential values out of public summaries and uses rules from the trusted base version of the repository.
-- Infrastructure rule review with visible failures, documented follow-up and related Terraform examples.
-- Software and container findings, package inventories, and a release rule that blocks High or Critical issues when a fix is available.
-- Authenticated passive web/API checks that compare allowed and denied responses while excluding tokens and private response bodies.
-- Local demonstrations, focused tests, screenshots, commands, source mappings and operating guidance for all four components.
+- Checks for accidentally saved secrets, with private handling of possible matches.
+- Checks of cloud setup instructions and software security updates.
+- A limited website check comparing users who should be allowed access with users who should be refused.
+- Example results, tests, screenshots and instructions for investigating findings.
 
-Each tool keeps its own folder, commands and guides. Their nested `.github` directories preserve reference workflows; only the root `.github/workflows` directory can define workflows for this repository.
+Each tool keeps its own folder and guide. [Technical source records](docs/CONSOLIDATION-SOURCES.json) identify the exact versions included.
 
 ## Proof It Works
+
+The included results show both improvements and remaining work:
+
+| Evidence | Recorded result |
+| --- | --- |
+| Software review | Seven reported vulnerability entries removed; 21 Medium and one Low remained in the recorded source scan. |
+| Cloud setup review | 211 checks passed and 106 failed in the recorded scan; failures remained available for review. |
+| Secret review | Three possible matches were checked and identified as public software-package hashes rather than credentials. |
+| Website access review | Ten read-only requests were checked, with two informational observations and no Low, Medium or High alerts in that limited sample. |
+| Local checks after combining the projects | 52 tests passed; two optional integration tests were skipped. |
+
+These are recorded results from specific checks, not a new assessment of today's platform. [What the checks cover](docs/VALIDATION.md).
+
+<details>
+<summary>For engineers: detailed results, examples and commands</summary>
 
 These are **historical scan and test results from the original projects**. They are not a fresh assessment of the platform:
 
@@ -75,7 +90,14 @@ The screenshots below are local reference views with fictional data, not Azure p
 | ![Trivy findings reference](tools/trivy/docs/images/01-strengths.png) | ![TruffleHog history reference](tools/trufflehog/docs/images/01-strengths.png) |
 | ![Checkov rule review reference](tools/checkov/docs/images/01-strengths.png) | ![ZAP authenticated check reference](tools/zap/docs/images/01-overview.png) |
 
+</details>
+
 ## Run the Examples
+
+The examples can be run locally. They use fictional inputs and do not connect to Azure or real user accounts.
+
+<details>
+<summary>For engineers: detailed results, examples and commands</summary>
 
 Python 3.12 and Node.js 22 are the reference runtimes. These commands run local contract tests and fictional demonstrations; they do not start Azure services, run live attack scans or deploy infrastructure.
 
@@ -93,23 +115,23 @@ The root GitHub Actions check is manual-only and runs these local examples. It d
 
 Checks after combining the projects: **52 tests passed; two optional integration tests skipped**. [Full validation scope](docs/VALIDATION.md).
 
+</details>
+
 ## Operations, Scaling and Tradeoffs
 
-Check changed files and affected container images for quick feedback, then run broader scans separately. Reuse a verified scanner installation or image and retain small summaries plus the exact checked version. Keep possible secret values and signed-in web traffic private.
+Start with the parts of the system affected by a change, then run wider checks separately. As the platform grows, give each finding an owner, a priority and a follow-up date.
 
-As the platform grows, assign findings to service owners, give exceptions expiry dates, and separate package updates from infrastructure changes that affect cost or connectivity. Broader authenticated coverage needs explicit route and role inventories; active testing needs a separate safe target and authorization.
-
-Four tools add maintenance, report volume and false-positive review. Their value comes from complementary coverage, a clear repair process and visible follow-up work.
+The tools cover different risks, but they also create more results to review. Some alerts need investigation before deciding whether they represent a real problem. A completed scan is evidence about what was checked; it does not establish that the whole platform is secure.
 
 ## Troubleshooting
 
-| Symptom | Check first |
+| Question | First step |
 | --- | --- |
-| An empty report appears clean | Confirm successful completion, target coverage and parsing before using counts. |
-| A secret was removed but still appears | Check Git history; if real, revoke/rotate it before considering history cleanup. |
-| Checkov proposes a costly setting | Review the rule and deployed architecture; do not apply paid resources automatically. |
-| A patched package still appears vulnerable | Confirm the lockfile and exact image digest were rebuilt and rescanned. |
-| ZAP only sees a login page | Verify the test session, role and allowed read-only requests without logging tokens. |
+| Why are there no findings? | Confirm the scan finished and covered the intended files or pages. |
+| Why is a deleted password still reported? | Check older code versions. If it was a real secret, revoke or replace it. |
+| Why is a cloud setting flagged? | Read the rule and assess its cost and service impact before changing it. |
+| Why does a fixed issue still appear? | Confirm the new software version was packaged and checked. |
+| Why does the website check see only sign-in? | Confirm the test account signed in and the intended pages were reached. |
 
 ## Boundaries
 
