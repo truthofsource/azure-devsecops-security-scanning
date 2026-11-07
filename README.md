@@ -91,6 +91,8 @@ Actual scanner commands and prerequisites are documented separately: [Trivy](too
 
 The root GitHub Actions check is manual-only and runs these local examples. It does not run the four real scanners, deploy Azure resources or prove current cloud security. No Actions run was dispatched to publish this consolidation.
 
+Local consolidation validation: **52 tests passed; two optional integration tests skipped**. [Full validation scope](docs/VALIDATION.md).
+
 ## Operations, Scaling and Tradeoffs
 
 Start with changed files and selected images for quick feedback, then schedule broader coverage separately. Reuse a verified scanner installation or image and retain small summaries plus the exact checked version. Keep raw secret candidates and authenticated traffic private.
