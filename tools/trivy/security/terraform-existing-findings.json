@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "owner": "Workforce Services platform",
+  "expiresUtc": "2026-11-01",
+  "reason": "Existing Terraform findings pending resource-by-resource network and Key Vault review. Listed occurrences stay visible, new occurrences block, and expiration stops release checks until reviewed. This baseline is not an approval to change Azure or a finding dismissal.",
+  "findings": [
+    {"id":"AZU-0012","target":"infra/modules/stage2/main.tf","resource":"module.stage2"},
+    {"id":"AZU-0010","target":"infra/modules/storage/main.tf","resource":"module.storage"},
+    {"id":"AZU-0012","target":"infra/modules/storage/main.tf","resource":"module.storage"},
+    {"id":"AZU-0010","target":"infra/platform/nonproduction/directory-worker.tf","resource":"azurerm_storage_account.directory_worker"},
+    {"id":"AZU-0010","target":"infra/platform/nonproduction/function-app.tf","resource":"azurerm_storage_account.function_app"},
+    {"id":"AZU-0013","target":"infra/platform/nonproduction/main.tf","resource":"azurerm_key_vault.platform"},
+    {"id":"AZU-0010","target":"infra/platform/nonproduction/stage2-scan-processor-foundation.tf","resource":"azurerm_storage_account.stage2_scan_processor"},
+    {"id":"AZU-0012","target":"infra/platform/production/directory-worker.tf","resource":"azurerm_storage_account.directory_worker"},
+    {"id":"AZU-0012","target":"infra/platform/production/function-app.tf","resource":"azurerm_storage_account.function_app"},
+    {"id":"AZU-0013","target":"infra/platform/production/main.tf","resource":"azurerm_key_vault.platform"},
+    {"id":"AZU-0012","target":"infra/platform/production/stage2-scan-processor-foundation.tf","resource":"azurerm_storage_account.stage2_scan_processor"}
+  ]
+}

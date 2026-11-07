@@ -1,0 +1,91 @@
+[
+  {
+    "name": "provider",
+    "dockerfile": "apps/provider-importer/Dockerfile",
+    "context": "apps/provider-importer",
+    "inputs": [
+      "apps/provider-importer/"
+    ]
+  },
+  {
+    "name": "sam-ttpl",
+    "dockerfile": "scripts/screening/Sam.Dockerfile",
+    "context": ".",
+    "inputs": [
+      "apps/api/",
+      "scripts/screening/"
+    ]
+  },
+  {
+    "name": "fowler-connection",
+    "dockerfile": "scripts/fowler/Dockerfile",
+    "context": ".",
+    "inputs": [
+      "apps/api/package",
+      "apps/web/package",
+      "scripts/fowler/"
+    ]
+  },
+  {
+    "name": "fowler-retrieval",
+    "dockerfile": "scripts/fowler/Retrieval.Dockerfile",
+    "context": ".",
+    "inputs": [
+      "apps/api/package",
+      "apps/web/package",
+      "scripts/fowler/"
+    ]
+  },
+  {
+    "name": "relias",
+    "dockerfile": "scripts/relias/Dockerfile",
+    "context": ".",
+    "inputs": [
+      "apps/api/package",
+      "apps/web/package",
+      "scripts/relias/"
+    ]
+  },
+  {
+    "name": "monitoring",
+    "dockerfile": "infra/workloads/monitoring/Dockerfile",
+    "context": "infra/workloads/monitoring",
+    "inputs": [
+      "infra/workloads/monitoring/"
+    ]
+  },
+  {
+    "name": "sam-browser",
+    "dockerfile": "scripts/screening/sam-browser/Dockerfile",
+    "context": "scripts/screening/sam-browser",
+    "inputs": [
+      "scripts/screening/sam-browser/"
+    ]
+  },
+  {
+    "name": "engineering-validation",
+    "dockerfile": "apps/engineering-components/eng-validation-worker-20261013/Dockerfile",
+    "context": "apps/engineering-components/eng-validation-worker-20261013",
+    "inputs": [
+      "apps/engineering-components/eng-validation-worker-20261013/"
+    ]
+  },
+  {
+    "name": "node-worker-template",
+    "dockerfile": "platform/backstage/templates/node-worker/skeleton/Dockerfile",
+    "context": "platform/backstage/templates/node-worker/skeleton",
+    "inputs": [
+      "platform/backstage/templates/node-worker/"
+    ]
+  },
+  {
+    "name": "backstage",
+    "dockerfile": "platform/backstage/app/packages/backend/Dockerfile",
+    "context": "platform/backstage/app",
+    "inputs": [
+      "platform/backstage/app/"
+    ],
+    "buildable": false,
+    "reason": "Requires reviewed matching Yarn/Node build and backend bundle; scan an exact retained image separately, never pretend a source-only Docker build is complete."
+  }
+]

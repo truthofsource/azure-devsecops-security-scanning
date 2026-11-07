@@ -1,0 +1,9 @@
+{
+  "observedDate": "2026-11-05",
+  "evidenceType": "Recorded reconciliation outcome, not a new history scan",
+  "reviewedCandidates": 3,
+  "confirmedPublicPackageHashes": 3,
+  "newSuppressionAdded": false,
+  "secretValuesIncluded": false,
+  "note": "Candidate detector output required review; public dependency hashes were not credential exposures."
+}

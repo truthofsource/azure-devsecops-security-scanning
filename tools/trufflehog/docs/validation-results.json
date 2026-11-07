@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-06",
+  "contracts": {
+    "run": 23,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0
+  },
+  "browser": {
+    "strengthCards": 3,
+    "tabs": true,
+    "fictionalExample": true,
+    "datedPlatformEvidence": true,
+    "mobile390": true,
+    "externalRequests": 0,
+    "browserErrors": 0
+  },
+  "scannerExecution": {
+    "realIntegration": "passed: removed synthetic private key found by pinned scanner",
+    "providerVerification": false,
+    "scannerNetwork": "none",
+    "rawKeyPublished": false,
+    "nativeCliIntegration": "not run"
+  },
+  "cloudChanged": false,
+  "actionsDispatched": false
+}

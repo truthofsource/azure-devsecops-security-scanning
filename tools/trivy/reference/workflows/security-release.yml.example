@@ -1,0 +1,66 @@
+name: Check selected release dependencies
+
+on:
+  workflow_call:
+    inputs:
+      source_sha:
+        description: Exact source commit selected by the application publisher
+        required: true
+        type: string
+
+# No Azure login, OIDC, provider credentials or candidate-code execution.
+permissions:
+  contents: read
+
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    env:
+      SOURCE_SHA: ${{ inputs.source_sha }}
+      TRUSTED_SHA: ${{ github.event.pull_request.base.sha || github.sha }}
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONNOUSERSITE: '1'
+    steps:
+      - name: Validate the exact requested commit
+        run: |
+          python3 -B - <<'PY'
+          import os, re
+          for name in ('SOURCE_SHA', 'TRUSTED_SHA'):
+              if not re.fullmatch(r'[a-f0-9]{40}', os.environ[name]):
+                  raise SystemExit('An exact lowercase source commit is required')
+          PY
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.sha }}
+          path: trusted
+          persist-credentials: false
+          submodules: false
+          lfs: false
+      - name: Verify trusted tooling checkout
+        run: test "$(git -C trusted rev-parse HEAD)" = "$TRUSTED_SHA"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ inputs.source_sha }}
+          path: candidate
+          persist-credentials: false
+          submodules: false
+          lfs: false
+      - name: Verify selected source checkout
+        run: test "$(git -C candidate rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Install the checksum-verified scanner from trusted policy
+        run: python3 -B trusted/scripts/security_scan.py install --directory "$RUNNER_TEMP/release-security-tools"
+      - name: Scan selected dependency files without running their code
+        run: python3 -B trusted/scripts/security_scan.py scan --source "$GITHUB_WORKSPACE/candidate" --dependencies-only --report-only --trivy "$RUNNER_TEMP/release-security-tools/trivy" --output "$RUNNER_TEMP/release-security"
+      - name: Require a complete exact-source result and enforce trusted dependency policy
+        run: python3 -B trusted/scripts/security_gate.py dependencies --input "$RUNNER_TEMP/release-security" --head "$SOURCE_SHA"
+      - name: Retain release dependency reports and both software inventories
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-security-${{ inputs.source_sha }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/release-security/
+          if-no-files-found: error
+          retention-days: 7

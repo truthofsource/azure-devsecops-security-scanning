@@ -1,0 +1,13 @@
+{
+  "trivy": {
+    "version": "0.75.0",
+    "linux": {
+      "archive": "trivy_0.75.0_Linux-64bit.tar.gz",
+      "sha256": "c6e65abddb348e25f10549df887045629cf28cc72453cd1c63acb717316b3f3f"
+    },
+    "windows": {
+      "archive": "trivy_0.75.0_windows-64bit.zip",
+      "sha256": "4e43bd71a30f51aee39525f60f2b47043af77eb8df8fe082aae4372b69c6660f"
+    }
+  }
+}

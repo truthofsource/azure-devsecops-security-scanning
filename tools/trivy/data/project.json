@@ -1,0 +1,43 @@
+{
+  "slug": "trivy-vulnerability-management",
+  "tool": "Trivy",
+  "title": "Trivy Vulnerability and Container Scanning",
+  "tagline": "Know what is in the release, what is vulnerable and whether the scan is complete.",
+  "problem": "A workforce-services platform shipped Node.js applications and multiple container workers. A source-only check could miss runtime OS packages; an image-only check could miss development dependencies. The release process needed complete inventory, a repeatable decision and evidence tied to the selected source or image.",
+  "solution": "Use a pinned, checksum-verified Trivy executable, stage only tracked scanner inputs, preserve all severities and unfixed findings, generate SBOMs, and separately evaluate fixable High/Critical dependencies. Keep source, image and infrastructure results distinct.",
+  "outcome": "The recorded compatible dependency repairs removed seven advisory occurrences without a broad major-version override. The source scan still retained 21 Medium and one Low occurrence; these were not described as a clean deployment.",
+  "strengths": [
+    [
+      "Package and image visibility",
+      "Inspect supported OS and language packages in the selected container image, and lockfiles in source. This exposes different parts of the delivery chain."
+    ],
+    [
+      "Reusable inventory",
+      "Generate CycloneDX and SPDX JSON SBOMs from the saved vulnerability report. Inventory can support later comparison and rescan workflows."
+    ],
+    [
+      "Repeatable release evidence",
+      "Pinned tooling, tracked inputs, coverage validation and exact source/image receipts make a threshold decision reviewable."
+    ]
+  ],
+  "limits": [
+    [
+      "Coverage follows target",
+      "A source scan is not a runtime image scan; supported package inventories are not exploit proofs."
+    ],
+    [
+      "Database age matters",
+      "The local reference used an existing DB without updating it; no vulnerability result is timeless."
+    ],
+    [
+      "Threshold is policy",
+      "Unfixed and Medium findings remain visible even when a fixable High/Critical threshold does not block."
+    ]
+  ],
+  "code": "scripts/security_scan.py",
+  "testcount": "12 original tests",
+  "proof": "A real local scan of the public API lockfile inventoried six packages and reported zero vulnerabilities against the existing local database. Configuration fixtures were scanned separately, and both CycloneDX and SPDX JSON were generated. The synthetic gate demonstration intentionally blocks one fixable High finding while retaining all three raw fixture findings.",
+  "version": "0.75.0",
+  "url": "https://trivy.dev/docs/latest/scanner/vulnerability/",
+  "workflow": "reference/workflows/security-release.yml.example"
+}

@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-06",
+  "files": [
+    {
+      "source": "scripts/trufflehog_scan.py",
+      "sourceSha256": "f0451ba092c26ba2e8da26cdc335d44d82bcaa45b1c93e48d80e29735f3f1b62",
+      "publicFile": "scripts/trufflehog_scan.py"
+    },
+    {
+      "source": "scripts/trufflehog_report.py",
+      "sourceSha256": "4397344cb62499c375bee91f56898c9cd34a7c15a451a9492bdf80660d55bd63",
+      "publicFile": "scripts/trufflehog_report.py"
+    },
+    {
+      "source": "scripts/trufflehog_pr.py",
+      "sourceSha256": "93a1c17eb1501a462d7522750b9bbb74ca570c3779f51114b9866acf22305c4e",
+      "publicFile": "scripts/trufflehog_pr.py"
+    },
+    {
+      "source": "scripts/test_trufflehog_scan.py",
+      "sourceSha256": "d318daffd9bb9f5b6e3d9bdcd1c792dc0ddf037d97f6d6087ed906b37a3ad232",
+      "publicFile": "scripts/test_trufflehog_scan.py"
+    },
+    {
+      "source": "scripts/test_trufflehog_pr.py",
+      "sourceSha256": "3e6b2bf13345a627d14f409a8585e2cb1937c7069172727a474b3d23d63fca17",
+      "publicFile": "scripts/test_trufflehog_pr.py"
+    },
+    {
+      "source": "security/trufflehog-lock.json",
+      "sourceSha256": "1e4cc4b0c78ec1965c8c9ef0fd62f6d000637799b7c3ab3012d450353bd891db",
+      "publicFile": "security/trufflehog-lock.json"
+    },
+    {
+      "source": "security/trufflehog-suppressions.json",
+      "sourceSha256": "389a3fa94ca7fb075ddf71bd6bb7fe1f521c10531c0b6125a5910e811e9ef317",
+      "publicFile": "security/trufflehog-suppressions.json"
+    },
+    {
+      "source": ".github/workflows/trufflehog-pr.yml",
+      "sourceSha256": "d1868f7e360e47548444ca59b88c0af2fd36481eb505c9f5d521315113deadc0",
+      "publicFile": "reference/workflows/trufflehog-pr.yml.example"
+    },
+    {
+      "source": ".github/workflows/trufflehog-contract-ci.yml",
+      "sourceSha256": "43eb67de278218cf2be1042541b9ecefeae570eb0751415ef76880cadd026bf4",
+      "publicFile": "reference/workflows/trufflehog-contract-ci.yml.example"
+    },
+    {
+      "source": ".github/workflows/trufflehog-manual-baseline.yml",
+      "sourceSha256": "840ddc0a4c91d7f0a9acb80d600bba676f6ff9de45c591892cf35164b2959eda",
+      "publicFile": "reference/workflows/trufflehog-manual-baseline.yml.example"
+    }
+  ],
+  "adaptations": [
+    "Neutral project labels",
+    "Production workflows retained inert outside .github",
+    "New small local viewer and fixtures"
+  ]
+}

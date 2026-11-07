@@ -1,0 +1,594 @@
+[
+  {
+    "component": "trivy",
+    "repository": "https://github.com/truthofsource/trivy-vulnerability-management",
+    "commit": "220db13561d7551008857f8c5871edf17975d6ce",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "sha256": "87de99bfbab5b6abec1f08c5ad474f23d4ae96c9f591f0ac8e517e04494c4d87"
+      },
+      {
+        "path": ".github/workflows/validate.yml",
+        "sha256": "1c579a2b6a38663b106dfa530a25e44755decb41b106c210cca08a4e71dd97cd"
+      },
+      {
+        "path": ".gitignore",
+        "sha256": "eade3d6260934ef2b1740e0b1d174fde6b794a51ca831ce977e9f26d0d18a2e6"
+      },
+      {
+        "path": "apps/reference/package-lock.json",
+        "sha256": "abed6e062f64fafbc18ee7c88ffd1af5ed9610f5c7425431842abf778eff200d"
+      },
+      {
+        "path": "apps/reference/package.json",
+        "sha256": "7a915232283d3b4dee027063824430bf3d9779d5c8405095407b1e6b0f8da2c7"
+      },
+      {
+        "path": "data/local-config-report.json",
+        "sha256": "397afb84bab73c4603bebfd11c495981bb26f37755fa4f1ec1f061f893e8520f"
+      },
+      {
+        "path": "data/local-scan-results.json",
+        "sha256": "54942510cf4b75004cde583a9570de1e95ec0a15c527c9be356101b608d0659c"
+      },
+      {
+        "path": "data/local-vulnerability-report.json",
+        "sha256": "db8df03110260028a44231af80cd5960e204d2244a268842d8c98e7b04050af6"
+      },
+      {
+        "path": "data/platform-findings.json",
+        "sha256": "d4abaceef62ceebdf2451595d0c5d665c70962d5dc84f67ad728ca425c235395"
+      },
+      {
+        "path": "data/project.json",
+        "sha256": "6661a454c34fdcc3c44e75bbee2d9f4e205611b3df3ac409f92d3e04d87b8302"
+      },
+      {
+        "path": "data/sbom.cyclonedx.json",
+        "sha256": "a614260ba38707a39cb27ac469ef10eeb4931568c4d51f4a00d16fb1fce363af"
+      },
+      {
+        "path": "data/sbom.spdx.json",
+        "sha256": "99079b58186c5835f359e3cc3e49e6b52fa33efbab06bd0f21b2469683ba120a"
+      },
+      {
+        "path": "docs/COMMANDS.md",
+        "sha256": "d63a804d2023b01e427b40c2535c4c81735d81b0368c15dedc79d1af110c5168"
+      },
+      {
+        "path": "docs/FINDINGS-AND-FIXES.md",
+        "sha256": "7f51267e9ac0009ccb0a8c335858e9c98a36df3f8d3e64e970982aaea3165441"
+      },
+      {
+        "path": "docs/images/01-strengths.png",
+        "sha256": "c7fc7db918486947ec7f86e7ab0e89f9a1dccedf491b69b6ae5b5bb1a8e5ddcd"
+      },
+      {
+        "path": "docs/images/02-example.png",
+        "sha256": "5dd85ae6d98370b16731609ae99ad2d280ba121f531b6d373bb33074c596fc0e"
+      },
+      {
+        "path": "docs/images/03-evidence.png",
+        "sha256": "ce9f143c67f0b7c3913ee594c68c33da52a99d751d4bc9fa2c66f3e29755cd03"
+      },
+      {
+        "path": "docs/images/04-mobile.png",
+        "sha256": "fca8ed2a767d933627a2652c325ade32a3a979a1598a00380874fcd023ffc522"
+      },
+      {
+        "path": "docs/OPERATIONS.md",
+        "sha256": "ba708629dae31f3cd822bf8acf054b371ca401c71a96fb3e927acea15921076a"
+      },
+      {
+        "path": "docs/PROCESS.md",
+        "sha256": "6a42a73a7c137eb8e6f9d3d1fee4f4ead0e021211d651115a607a3cec232d37e"
+      },
+      {
+        "path": "docs/SCALING.md",
+        "sha256": "49822871e84cc1a9fa654274179964c41e7c731ea41a991a2e2942a76212c49b"
+      },
+      {
+        "path": "docs/source-map.json",
+        "sha256": "df784fad0c3bfa0f42a3cf5c14dfd8efc550d08012e698040af88ebaebe5b223"
+      },
+      {
+        "path": "docs/SOURCE-MAP.md",
+        "sha256": "e304149ee81c1e3fedf8d97602a0362f6714f9897562c5ae5ee62fbc570811d1"
+      },
+      {
+        "path": "docs/STRENGTHS-AND-TRADEOFFS.md",
+        "sha256": "28085d9f852116c274aece96cfe200dc2338b033b57fe971c539aecf0ba972a5"
+      },
+      {
+        "path": "docs/validation-results.json",
+        "sha256": "95c5aa1a903f56aa24379455f4467eaca2865909a2effbf2aa32e839f076abfc"
+      },
+      {
+        "path": "docs/VALIDATION.md",
+        "sha256": "976b6fab99e2a300d0d97474a283ecc8af3cf0246eab812653c90af988436ef3"
+      },
+      {
+        "path": "infra/after/main.tf",
+        "sha256": "cef76efe1dd2725b0ec29f2e74c51d370b9c8f54557018e88f5731b7ac1ddcf8"
+      },
+      {
+        "path": "infra/before/main.tf",
+        "sha256": "800e89a5fa46c707c475a95b6f952c7354c195472ed8b42a3fad542c1a6d0d33"
+      },
+      {
+        "path": "infra/README.md",
+        "sha256": "46f2f3767870631edb8789a5a3f8f8891fbbbb360be12c46fcc43dc37555f810"
+      },
+      {
+        "path": "preview/index.html",
+        "sha256": "35203e0530012b630f1ae367424ecd550795fbadaadf2e8c738bd780d864056f"
+      },
+      {
+        "path": "README.md",
+        "sha256": "49cdcedc909130c491f4334e4ec3eca4aa3fff1069be492a4ba9ae0e3e1a1c20"
+      },
+      {
+        "path": "reference/containers/Backstage.Dockerfile",
+        "sha256": "c6d9c09eca503b757e3319992f3e9230925a6d5503051796d25224a6c045b492"
+      },
+      {
+        "path": "reference/infra/storage.tf",
+        "sha256": "a943e3075da20f17f21ec619eed1405ec827d3185a5714c7c9f03f173828de52"
+      },
+      {
+        "path": "reference/workflows/security-release.yml.example",
+        "sha256": "e4f22fb03d5c514dc7d6f09da6f73cf27859416259ecb110bf82e9f72f99696b"
+      },
+      {
+        "path": "scripts/ci_scope.py",
+        "sha256": "9e83785394771d80525c6c5a99df8033843b85547383a8cdb9d97a491aefa35c"
+      },
+      {
+        "path": "scripts/demo.py",
+        "sha256": "1d7d773d005ba2cca0d19e6c3f185b9fce3ad28b3a30e819e1faf2f7a472929b"
+      },
+      {
+        "path": "scripts/preview.py",
+        "sha256": "9397df08fa79fe411b56719baf8f265cdbc1f8593e2971be624bd9cdc42f2981"
+      },
+      {
+        "path": "scripts/security_scan.py",
+        "sha256": "526919c0f71f6630515e1202b08ab81fceea707b2aa88c510b82f93a692d9a9d"
+      },
+      {
+        "path": "scripts/security_scope.py",
+        "sha256": "07b1fa42d507750f57aaf69f1a92122424074d962fbc8e461ed976e2aa56e1ea"
+      },
+      {
+        "path": "scripts/test_security_scanning.py",
+        "sha256": "8022527481d6f3060b6a47107ec04aa524a1f885592349971a47026e978ba08e"
+      },
+      {
+        "path": "security/exceptions.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      {
+        "path": "security/images.json",
+        "sha256": "844600766af78cfea8a2e8e333135657eece17c8388bc5bb13f224d5ba91402c"
+      },
+      {
+        "path": "security/scanners.json",
+        "sha256": "587ef13548c82be4b875c9381342fd579ee3e352d95f15cf52854b5cab4d8e89"
+      },
+      {
+        "path": "security/terraform-existing-findings.json",
+        "sha256": "ff449217c44395b5300f89bd8a0880a54985ab7440a5be2e7247faa721235362"
+      },
+      {
+        "path": "SECURITY.md",
+        "sha256": "7dc0ec69552b9083c6774fe471b4dfd38816e34f3afc7cf8ad1515e05225ea35"
+      }
+    ]
+  },
+  {
+    "component": "checkov",
+    "repository": "https://github.com/truthofsource/checkov-azure-infrastructure-security",
+    "commit": "5cb815a1a27ea066330500b7d8cd9f01b1081665",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "sha256": "87de99bfbab5b6abec1f08c5ad474f23d4ae96c9f591f0ac8e517e04494c4d87"
+      },
+      {
+        "path": ".github/workflows/validate.yml",
+        "sha256": "009b5f0ec7eddc045db285d01899e9010d8afa412bfb4d66f7f6c5942bdfbef1"
+      },
+      {
+        "path": ".gitignore",
+        "sha256": "eade3d6260934ef2b1740e0b1d174fde6b794a51ca831ce977e9f26d0d18a2e6"
+      },
+      {
+        "path": "data/local-checkov-report.json",
+        "sha256": "eec20f8c83a2e6477787a60e467b0c29f4b04f20e64a70ac6074fa1ebb8729fe"
+      },
+      {
+        "path": "data/local-scan-results.json",
+        "sha256": "710abae3ed6d74f0dd56c9dd686ebe2007f16ad87073cbbc2335832abeddbc91"
+      },
+      {
+        "path": "data/platform-findings.json",
+        "sha256": "97b203b6d74867cc7ac910a22b047978908635e5b259531650e46b2a052c4ead"
+      },
+      {
+        "path": "data/platform-open-findings.csv",
+        "sha256": "3170344e4e22a081373ef27dbe8211ede7f7d93174041ba17b13673e3e1fd0cf"
+      },
+      {
+        "path": "data/project.json",
+        "sha256": "33e18a12562938e8c15bba27c5e4a7d8da85834b3b354ef5d11e2d873c79f485"
+      },
+      {
+        "path": "docs/COMMANDS.md",
+        "sha256": "b35d57af6f1d05af5680fcdc720948c6221b6a63d5d19a6504e2a7eee3fe47b0"
+      },
+      {
+        "path": "docs/FINDINGS-AND-FIXES.md",
+        "sha256": "1f6563b94019a04840cd7e68f93ae9daa89ef6aa528c5fe276abcb189d963cf0"
+      },
+      {
+        "path": "docs/images/01-strengths.png",
+        "sha256": "2b706365d1fe1c31e6a5a11b071acf6158bf013df1017f19b4be5844ce4a3c48"
+      },
+      {
+        "path": "docs/images/02-example.png",
+        "sha256": "a03408a14096d1fcf101e29508df5cba9988f7777a197247ea52ded23a775ae3"
+      },
+      {
+        "path": "docs/images/03-evidence.png",
+        "sha256": "1b793f4f16199145c8a34eb5e97c40e6f1dcda5ad8b0d9eff15fa2da3e544766"
+      },
+      {
+        "path": "docs/images/04-mobile.png",
+        "sha256": "2eec9da0b38696d55dc0c3841b5df7dd57724cc77b01ac7d04fb3578765f2b42"
+      },
+      {
+        "path": "docs/OPERATIONS.md",
+        "sha256": "1082e55c4229db5682a1af1166266a02e0f566f0f7a4ca6b0fd3b8ef6dc8a3a5"
+      },
+      {
+        "path": "docs/PROCESS.md",
+        "sha256": "3c96c16b30184e6698e39504cacc9ec1ba97240dae761701788238a104512ecc"
+      },
+      {
+        "path": "docs/SCALING.md",
+        "sha256": "f1a7733eb1cecb10df38ac9c03d85bfa65238d8d49435f7744409e71618a096e"
+      },
+      {
+        "path": "docs/source-map.json",
+        "sha256": "03b2cda149486eb84b8e972c6924b82a08632f63f7f7ddafc571e028d1073543"
+      },
+      {
+        "path": "docs/SOURCE-MAP.md",
+        "sha256": "3ec4cc72032207e9c75ca4d05650adf9a5788023a2efc95f94f6f98bd036d783"
+      },
+      {
+        "path": "docs/STRENGTHS-AND-TRADEOFFS.md",
+        "sha256": "704d538b383be9388f0a5416166d96973935ba79c038ee791a54e6c1abed67c5"
+      },
+      {
+        "path": "docs/validation-results.json",
+        "sha256": "5db0956e6d5f1e9b2878fb6853c277fb9c24311fb9937b74f847d2f0aed230be"
+      },
+      {
+        "path": "docs/VALIDATION.md",
+        "sha256": "7f80f5205b944220126ce89906c489e09a4c6974ce0d0e2a35f26c5751049a16"
+      },
+      {
+        "path": "infra/after/main.tf",
+        "sha256": "cef76efe1dd2725b0ec29f2e74c51d370b9c8f54557018e88f5731b7ac1ddcf8"
+      },
+      {
+        "path": "infra/before/main.tf",
+        "sha256": "800e89a5fa46c707c475a95b6f952c7354c195472ed8b42a3fad542c1a6d0d33"
+      },
+      {
+        "path": "infra/README.md",
+        "sha256": "46f2f3767870631edb8789a5a3f8f8891fbbbb360be12c46fcc43dc37555f810"
+      },
+      {
+        "path": "preview/index.html",
+        "sha256": "d1c41926e9e21e1f124c8745aad2ad4875915ad1ff3f6627b5b7721ddc202d44"
+      },
+      {
+        "path": "README.md",
+        "sha256": "0141ef9626ef3c793f36510fc1052b75f954d864844f73692950eac98e8aa0c5"
+      },
+      {
+        "path": "reference/infra/storage.tf",
+        "sha256": "a943e3075da20f17f21ec619eed1405ec827d3185a5714c7c9f03f173828de52"
+      },
+      {
+        "path": "reference/workflows/security-checkov-baseline.yml.example",
+        "sha256": "b52cbf823db4981b7d9a4881ff622cba16a8e5501b9465e04168e7e977495159"
+      },
+      {
+        "path": "scripts/demo.py",
+        "sha256": "b243d1218463319abb6bde85e20fecc05274f9e9463cbd548143d6a8c87a4835"
+      },
+      {
+        "path": "scripts/preview.py",
+        "sha256": "9397df08fa79fe411b56719baf8f265cdbc1f8593e2971be624bd9cdc42f2981"
+      },
+      {
+        "path": "scripts/security_checkov.py",
+        "sha256": "c9c440c8c9120ba945c72f36568995a3aed634e3ae9d1d7f0e74921371ae5449"
+      },
+      {
+        "path": "scripts/test_security_checkov.py",
+        "sha256": "630f7fa94ecab570c927fc8ea356bbaa258b11a779e7dbbda515cc35a7103198"
+      },
+      {
+        "path": "security/checkov-requirements.in",
+        "sha256": "244f2e1600bd2c8fbcfe97832cfb76e6419974b9778b1a057227a79f59cebac2"
+      },
+      {
+        "path": "security/checkov-requirements.txt",
+        "sha256": "e2da4cab7df2bc8bebd5f65f525481eac3b110e0d7731e1c9d6b34d5a0baec60"
+      },
+      {
+        "path": "SECURITY.md",
+        "sha256": "7dc0ec69552b9083c6774fe471b4dfd38816e34f3afc7cf8ad1515e05225ea35"
+      }
+    ]
+  },
+  {
+    "component": "trufflehog",
+    "repository": "https://github.com/truthofsource/trufflehog-secret-detection",
+    "commit": "87702419acbbe349f19aa5103fee64b77618ec94",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "sha256": "87de99bfbab5b6abec1f08c5ad474f23d4ae96c9f591f0ac8e517e04494c4d87"
+      },
+      {
+        "path": ".github/workflows/validate.yml",
+        "sha256": "5f2ecddfe0220be2c882ee64a2f8fb26d0824c4866167fa129a0b2a5b09181c5"
+      },
+      {
+        "path": ".gitignore",
+        "sha256": "eade3d6260934ef2b1740e0b1d174fde6b794a51ca831ce977e9f26d0d18a2e6"
+      },
+      {
+        "path": "data/platform-findings.json",
+        "sha256": "198d11d20945c2ed87779d65c2333e82d032a229692b3b8e4eefeeee3598df33"
+      },
+      {
+        "path": "data/project.json",
+        "sha256": "be9f48fbf6c66f54d082f137391419edc14ae2934d95e77e3eaec3be009fc33d"
+      },
+      {
+        "path": "docs/COMMANDS.md",
+        "sha256": "03847dbc2c372dc7c940427b1ec828e3f0415de78414c623c107fc20eeed9c8c"
+      },
+      {
+        "path": "docs/FINDINGS-AND-FIXES.md",
+        "sha256": "26b59adbea4c02cf588cada24e2bca60f1faac57076582006322e41fa1942643"
+      },
+      {
+        "path": "docs/images/01-strengths.png",
+        "sha256": "ed28c2d904eaa6d25e4add48e97491dc320cc82e97c88862047ccce641535296"
+      },
+      {
+        "path": "docs/images/02-example.png",
+        "sha256": "4871c6495794e3d0fbb8f304a077305a456346d6bcb89ff8c6bd1e2e683ccc71"
+      },
+      {
+        "path": "docs/images/03-evidence.png",
+        "sha256": "68136e94a7c1bc172352d18bcb711027498d1ea4ddadb34dcdda3fcb3b987b88"
+      },
+      {
+        "path": "docs/images/04-mobile.png",
+        "sha256": "fbee6dee4c942ceb38f7305d0b821de333bba6e9bfd3b47b9ba9ad3194ba6213"
+      },
+      {
+        "path": "docs/OPERATIONS.md",
+        "sha256": "6c8ac665bbf9f348a780906947811966fb9c17c48a1e247f552f0eec78495ef4"
+      },
+      {
+        "path": "docs/PROCESS.md",
+        "sha256": "282dc4b293e2219fbcd4f5f80bdacc4ac7fed244054e7d8868ea9fc6dd8bce89"
+      },
+      {
+        "path": "docs/SCALING.md",
+        "sha256": "4a29e7ee07c0c18809c2b3fb24e35767abe2c7735d50ad4912351fe6a702907f"
+      },
+      {
+        "path": "docs/source-map.json",
+        "sha256": "a2bca455133a679633fda87650eacc97a295f21cc203f66bd86a57c491f46a51"
+      },
+      {
+        "path": "docs/SOURCE-MAP.md",
+        "sha256": "4fc7b2992fb322341f270e2675bfeea2650f2451be47efe4dcad65ceb1816645"
+      },
+      {
+        "path": "docs/STRENGTHS-AND-TRADEOFFS.md",
+        "sha256": "775fc926f1864c8bbe4c2ea3dced116d5f9b11a2d04770e509772264817ff5b0"
+      },
+      {
+        "path": "docs/validation-results.json",
+        "sha256": "1676362fdfd61e0782d0ee26f61832479f8c11da4b79ce22f326ab205375d204"
+      },
+      {
+        "path": "docs/VALIDATION.md",
+        "sha256": "6d2ce6ea8ab88c773acaa619f64d553af26ac19d2b2a4b0306e2da26a1f81651"
+      },
+      {
+        "path": "preview/index.html",
+        "sha256": "fb46dd8caea9e4a2f763e81511e54d78caade38e565365ed5071c519f30a6afe"
+      },
+      {
+        "path": "README.md",
+        "sha256": "50b2d00c1d44008aa38146ed901b3aec10e71d46be739089cfd7ba4e71b7d78d"
+      },
+      {
+        "path": "reference/workflows/trufflehog-contract-ci.yml.example",
+        "sha256": "3d5cf5231308eabb56d2fb84c07ee0c60488ec1bcf6120aeb3f784863c6f0227"
+      },
+      {
+        "path": "reference/workflows/trufflehog-manual-baseline.yml.example",
+        "sha256": "5d922d2337c6285f9aeb2aad60f827dc287a101076f2f3cca13b51abf0188c74"
+      },
+      {
+        "path": "reference/workflows/trufflehog-pr.yml.example",
+        "sha256": "415ae75b439fc0fe11d1c8f7b763bbc4e1af9379ae7f4e53f5e3199e60edc671"
+      },
+      {
+        "path": "scripts/demo.py",
+        "sha256": "03ef89d0561661286c4ef236804d631154f265976a39db9be4dbc036949ff57e"
+      },
+      {
+        "path": "scripts/preview.py",
+        "sha256": "9397df08fa79fe411b56719baf8f265cdbc1f8593e2971be624bd9cdc42f2981"
+      },
+      {
+        "path": "scripts/test_trufflehog_pr.py",
+        "sha256": "e7485a8dfae90fe62cd028c88c7877be07d7a03bbf9a6b7b71292b35d2be0e50"
+      },
+      {
+        "path": "scripts/test_trufflehog_scan.py",
+        "sha256": "74853844ee856a02d3d3a86f33a31e78dd2daf4a0ddbab54ed1e7199dc9b3e72"
+      },
+      {
+        "path": "scripts/trufflehog_pr.py",
+        "sha256": "6f4f4384f5de2e305ac49bd37f6460268d042b69db6694dc0d54f186ba1d97b9"
+      },
+      {
+        "path": "scripts/trufflehog_report.py",
+        "sha256": "88e68cd9b0570277a26dfd6b0a00428394e8bf742497c753a89a2a39b9f2fce6"
+      },
+      {
+        "path": "scripts/trufflehog_scan.py",
+        "sha256": "ed64ffa57c827aa12742cc063b8d2d4f3368df21088c7759c1ef9d7b947b09c4"
+      },
+      {
+        "path": "security/trufflehog-lock.json",
+        "sha256": "ac23766b8b7330f939451bbeeca43f6f7e910ae385138cea3f122bd9637b1b58"
+      },
+      {
+        "path": "security/trufflehog-suppressions.json",
+        "sha256": "52c8fe9bc962663541f17d2f09f0fe5942b6f8a5452179624a4eaf8bb6576a28"
+      },
+      {
+        "path": "SECURITY.md",
+        "sha256": "7dc0ec69552b9083c6774fe471b4dfd38816e34f3afc7cf8ad1515e05225ea35"
+      }
+    ]
+  },
+  {
+    "component": "zap",
+    "repository": "https://github.com/truthofsource/owasp-zap-authenticated-security",
+    "commit": "6f97f215c73ce6707a53bbc9a7324c5bfc468b7b",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "sha256": "51472e5a872f00a7eeadef43a3339aef643fda2ea3fc3443b0b25785b4283938"
+      },
+      {
+        "path": ".github/workflows/validate.yml",
+        "sha256": "27c45d40cf4a487dba4972f099111b3856e7f15fe17f2021f3fa236f2b59434b"
+      },
+      {
+        "path": ".gitignore",
+        "sha256": "f8ae0a0226b0e7a3e021c756868e1a130ca2d3ed553e15bd8efb7af7a895ce40"
+      },
+      {
+        "path": "data/history.json",
+        "sha256": "6e15f3291ab91df62c8dd111992aee55ff8e50a943f7414c2d7e719ab3a54cb5"
+      },
+      {
+        "path": "data/project.json",
+        "sha256": "5c899ec4fed9dfe341614d0d3fafb18532810ae2e703a7afa23a5aff02ed0ad1"
+      },
+      {
+        "path": "docs/COMMANDS.md",
+        "sha256": "8b93dccf1ac797d8eedb06bb025b0c7dabae48a023797ace6a8ee4daef1c7796"
+      },
+      {
+        "path": "docs/images/01-overview.png",
+        "sha256": "c6500335c5d45af9c59bb4251b3124d1cefc05874149f94818ab8c6d7b6398da"
+      },
+      {
+        "path": "docs/images/02-example.png",
+        "sha256": "aef7474efad172625bd55d8f2fbe991f644c2060bdc2a7e9d13bf84e60456145"
+      },
+      {
+        "path": "docs/images/03-context.png",
+        "sha256": "8759d551d2171f5952980167268953899fb44973e2776bb646adec21fc0c783f"
+      },
+      {
+        "path": "docs/images/04-mobile.png",
+        "sha256": "d04023b201e77baec5060c1c8506adf5136fabf069f58f6aa4157b841880ed9c"
+      },
+      {
+        "path": "docs/IMPLEMENTATION.md",
+        "sha256": "6ab98011e593d8fe7e018b22500156f0116f2d65ebe3c33020bcbb99e48a9723"
+      },
+      {
+        "path": "docs/OPERATIONS-AND-SCALING.md",
+        "sha256": "cc90aafcc9bd952d98b1aa555f87728e108b17093850cef9e2ce4d63405e46d8"
+      },
+      {
+        "path": "docs/source-map.json",
+        "sha256": "5c7238a74007073f21ed8f750e453daebf1fc4ccfba48bb4801ada8a2bebaded"
+      },
+      {
+        "path": "docs/SOURCE-MAP.md",
+        "sha256": "9957ec70343e7b985dc8e7f824abc8e2b9d58b3b172ca089b47405fbcf1d7dd2"
+      },
+      {
+        "path": "docs/validation-results.json",
+        "sha256": "b5d9cb3aa97be61c77a28bd00414f217954342a964204b901f5c1c3080bfecf8"
+      },
+      {
+        "path": "docs/VALIDATION.md",
+        "sha256": "f86a84f95ee730e96aa8e7ac8fb56ce15bfac91def2067b7a235f577250e2092"
+      },
+      {
+        "path": "preview/index.html",
+        "sha256": "cd4db696a4677c3b38291fee80a9e9bcc864b37ec02b43574d84769047f12559"
+      },
+      {
+        "path": "README.md",
+        "sha256": "4ae330762b83bffdf9d076eee3f4b37389efb9937cc19c777997ccc05424a366"
+      },
+      {
+        "path": "scripts/demo.py",
+        "sha256": "8ed9bec3c47e097999fed0afefb50a561e0f86d5d19319ae063f4532fad45339"
+      },
+      {
+        "path": "scripts/preview.py",
+        "sha256": "67131c8ef280b19cc4d0b3c4518e70fc2851fadbdc1500c5bb13761ac63930e1"
+      },
+      {
+        "path": "scripts/test_security_zap_role_matrix.py",
+        "sha256": "08f3a5e04152449bd5a7ace3191a67ddd6842705c96f3dd7a96c82b29d203404"
+      },
+      {
+        "path": "scripts/test_zap_authenticated.py",
+        "sha256": "d9c3c059ef10bb4b573137278c6d6430a275bee877fec7783683a9456164ef1f"
+      },
+      {
+        "path": "scripts/zap_authenticated.py",
+        "sha256": "9be17881daf5f741d835fea4aa0678a6e3dd6d2f56397b97135b3ab93d987e8f"
+      },
+      {
+        "path": "scripts/zap_role_matrix.py",
+        "sha256": "9170c11d05d7eaf326d85122eac44fb84fd1ffac961f61ff6d855149bb09dde8"
+      },
+      {
+        "path": "security/zap-lock.json",
+        "sha256": "1d1db40a46eb1990eaa2703fe5a47d5a6b378ed82a12916578f8bab81bc159cb"
+      },
+      {
+        "path": "SECURITY.md",
+        "sha256": "61d27cf9c739fa8da70c417be73f8c0cac24f0d0603c80f0a4fbd3beca732124"
+      }
+    ]
+  }
+]

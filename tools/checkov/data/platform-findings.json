@@ -1,0 +1,27 @@
+{
+  "observedDate": "2026-11-05",
+  "evidenceType": "Recorded full-source baseline, not a current cloud assessment",
+  "summary": {
+    "passed": 211,
+    "failed": 106,
+    "skipped": 0,
+    "parsing_errors": 0,
+    "resource_count": 508,
+    "checkov_version": "3.3.26"
+  },
+  "inputCount": 228,
+  "reportSha256": "e915e7f3607dbf133effda1a944253890244166da52e3e44b2dbbbd411cface8",
+  "categories": {
+    "database-assurance": 2,
+    "availability-cost": 24,
+    "logging-retention": 26,
+    "network": 27,
+    "trusted-service-bypass": 4,
+    "registry-supply-chain": 3,
+    "data-lifecycle": 1,
+    "key-lifecycle": 18,
+    "vm-extensions": 1
+  },
+  "unchangedInfrastructureInputs": true,
+  "cloudFixesApplied": false
+}

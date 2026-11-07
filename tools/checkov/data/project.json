@@ -1,0 +1,43 @@
+{
+  "slug": "checkov-azure-infrastructure-security",
+  "tool": "Checkov",
+  "title": "Checkov Infrastructure Security for Azure",
+  "tagline": "Find risky infrastructure settings before applying them, and keep every unresolved control visible.",
+  "problem": "An Azure platform had hundreds of Terraform resources with network, retention, logging, key-lifecycle and availability controls. A failed rule did not always mean an exploitable vulnerability, and a report-only baseline could be mistaken for release approval.",
+  "solution": "Use pinned Checkov and hash-locked dependencies, stage only tracked Terraform with content hashes, avoid cloud credentials/external module downloads, validate report completeness, and maintain a finding-by-finding triage register. Keep advisory findings distinct from fatal execution/coverage failures.",
+  "outcome": "The recorded full-source baseline evaluated 508 resources over 228 inputs: 211 checks passed, 106 failed, with no skips or parse errors. Each remaining occurrence retained its next-evidence requirement rather than being silently suppressed.",
+  "strengths": [
+    [
+      "Early infrastructure feedback",
+      "Inspect Terraform definitions before deployment to catch insecure configuration choices while they are still reviewable source changes."
+    ],
+    [
+      "Broad built-in control library",
+      "Rule IDs and resource-level evidence organize checks across storage, networking, logging, identity and availability; custom policies can complement built-in controls."
+    ],
+    [
+      "Actionable triage",
+      "Repeatable resource/file identities, counts and next-evidence tracking support focused remediation without confusing a static finding with live compromise."
+    ]
+  ],
+  "limits": [
+    [
+      "Static context is incomplete",
+      "External/omitted modules, variable resolution and modern alternative controls can require further evidence."
+    ],
+    [
+      "Finding is not exploitability",
+      "A failed rule may represent cost/availability policy or a missing static graph relationship, not proven compromise."
+    ],
+    [
+      "Advisory is not approval",
+      "This actual wrapper uses soft-fail for findings; execution, version, parse and coverage errors still fail. It is not a release security gate."
+    ]
+  ],
+  "code": "scripts/security_checkov.py",
+  "testcount": "10 original tests",
+  "proof": "A fresh network-isolated scan of two public storage fixtures produced 14 passed and 16 failed checks, with no skips or parse errors. Specific rules changed from Failed to Passed after the narrow fixture changes; unresolved controls stayed visible. No Terraform was applied.",
+  "version": "3.3.26",
+  "url": "https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html",
+  "workflow": "reference/workflows/security-checkov-baseline.yml.example"
+}

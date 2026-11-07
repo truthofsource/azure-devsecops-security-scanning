@@ -1,0 +1,260 @@
+{
+  "observedDate": "2026-11-05",
+  "evidenceType": "Recorded platform source scans; not a new scan of deployed images",
+  "before": {
+    "counts": {
+      "MEDIUM": 26,
+      "LOW": 3
+    },
+    "reportSha256": "faf53e9a2ae8c5b3b7708a206d464a9f0a1057330da5c9a5d7b176eb78cd7bec"
+  },
+  "after": {
+    "counts": {
+      "MEDIUM": 21,
+      "LOW": 1
+    },
+    "reportSha256": "944d395704e55164e17d369c692b0f5e44732ab9480ffa7995e54e61fd55f901"
+  },
+  "repairedSourceOccurrences": [
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "@backstage/plugin-catalog-backend",
+      "installed": "4.0.0",
+      "id": "CVE-2026-115923",
+      "severity": "MEDIUM",
+      "fixed": "3.9.2, 4.0.2"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "fast-uri",
+      "installed": "3.1.8",
+      "id": "CVE-2026-110180",
+      "severity": "MEDIUM",
+      "fixed": "2.4.8, 3.1.9, 4.2.3"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "fast-uri",
+      "installed": "3.1.8",
+      "id": "CVE-2026-110306",
+      "severity": "MEDIUM",
+      "fixed": "2.4.8, 3.1.9, 4.2.3"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "fast-uri",
+      "installed": "3.1.8",
+      "id": "CVE-2026-110095",
+      "severity": "LOW",
+      "fixed": "2.4.8, 3.1.9, 4.2.3"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "fast-uri",
+      "installed": "3.1.8",
+      "id": "CVE-2026-110725",
+      "severity": "LOW",
+      "fixed": "2.4.8, 3.1.9, 4.2.3"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "postcss-selector-parser",
+      "installed": "6.1.4",
+      "id": "CVE-2026-104844",
+      "severity": "MEDIUM",
+      "fixed": "7.1.6, 6.1.5"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "qs",
+      "installed": "6.16.0",
+      "id": "CVE-2026-110816",
+      "severity": "MEDIUM",
+      "fixed": "6.16.1"
+    }
+  ],
+  "remainingDependencies": [
+    {
+      "target": "apps/api/package-lock.json",
+      "package": "glob",
+      "installed": "13.0.6",
+      "id": "CVE-2026-118773",
+      "severity": "MEDIUM",
+      "fixed": "14.0.2"
+    },
+    {
+      "target": "apps/api/package-lock.json",
+      "package": "minimatch",
+      "installed": "10.2.5",
+      "id": "CVE-2026-118764",
+      "severity": "MEDIUM",
+      "fixed": "11.0.1"
+    },
+    {
+      "target": "apps/stage2-scan-processor/package-lock.json",
+      "package": "glob",
+      "installed": "13.0.6",
+      "id": "CVE-2026-118773",
+      "severity": "MEDIUM",
+      "fixed": "14.0.2"
+    },
+    {
+      "target": "apps/stage2-scan-processor/package-lock.json",
+      "package": "minimatch",
+      "installed": "10.2.5",
+      "id": "CVE-2026-118764",
+      "severity": "MEDIUM",
+      "fixed": "11.0.1"
+    },
+    {
+      "target": "apps/web/package-lock.json",
+      "package": "minimatch",
+      "installed": "10.2.5",
+      "id": "CVE-2026-118764",
+      "severity": "MEDIUM",
+      "fixed": "11.0.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "@octokit/plugin-paginate-rest",
+      "installed": "6.1.2",
+      "id": "CVE-2025-25288",
+      "severity": "MEDIUM",
+      "fixed": "11.4.1, 9.2.2"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "@octokit/request",
+      "installed": "6.2.8",
+      "id": "CVE-2025-25290",
+      "severity": "MEDIUM",
+      "fixed": "9.2.1, 8.4.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "@octokit/request-error",
+      "installed": "3.0.3",
+      "id": "CVE-2025-25289",
+      "severity": "MEDIUM",
+      "fixed": "5.1.1, 6.1.7"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "elliptic",
+      "installed": "6.6.1",
+      "id": "CVE-2025-14505",
+      "severity": "LOW",
+      "fixed": null
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "file-type",
+      "installed": "16.5.4",
+      "id": "CVE-2026-31808",
+      "severity": "MEDIUM",
+      "fixed": "21.3.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "glob",
+      "installed": "10.5.0",
+      "id": "CVE-2026-118773",
+      "severity": "MEDIUM",
+      "fixed": "14.0.2"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "glob",
+      "installed": "13.0.6",
+      "id": "CVE-2026-118773",
+      "severity": "MEDIUM",
+      "fixed": "14.0.2"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "got",
+      "installed": "11.8.2",
+      "id": "CVE-2022-33987",
+      "severity": "MEDIUM",
+      "fixed": "12.1.0, 11.8.5"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "minimatch",
+      "installed": "10.2.6",
+      "id": "CVE-2026-118764",
+      "severity": "MEDIUM",
+      "fixed": "11.0.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "minimatch",
+      "installed": "9.0.9",
+      "id": "CVE-2026-118764",
+      "severity": "MEDIUM",
+      "fixed": "11.0.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "prismjs",
+      "installed": "1.27.0",
+      "id": "CVE-2024-53382",
+      "severity": "MEDIUM",
+      "fixed": "1.30.0"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "react-router",
+      "installed": "6.30.6",
+      "id": "CVE-2026-53666",
+      "severity": "MEDIUM",
+      "fixed": "7.18.0"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "react-router",
+      "installed": "6.30.6",
+      "id": "CVE-2026-53669",
+      "severity": "MEDIUM",
+      "fixed": "7.18.0"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "uuid",
+      "installed": "10.0.0",
+      "id": "CVE-2026-41907",
+      "severity": "MEDIUM",
+      "fixed": "11.1.1, 12.0.1, 13.0.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "uuid",
+      "installed": "3.4.0",
+      "id": "CVE-2026-41907",
+      "severity": "MEDIUM",
+      "fixed": "11.1.1, 12.0.1, 13.0.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "uuid",
+      "installed": "8.3.2",
+      "id": "CVE-2026-41907",
+      "severity": "MEDIUM",
+      "fixed": "11.1.1, 12.0.1, 13.0.1"
+    },
+    {
+      "target": "platform/backstage/app/yarn.lock",
+      "package": "uuid",
+      "installed": "9.0.1",
+      "id": "CVE-2026-41907",
+      "severity": "MEDIUM",
+      "fixed": "11.1.1, 12.0.1, 13.0.1"
+    }
+  ],
+  "trivyInfrastructure": {
+    "count": 11,
+    "baselineExpired": true,
+    "accepted": false
+  },
+  "newAdvisoryIdentities": []
+}

@@ -1,0 +1,244 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:95616cb0-b175-410c-954f-02879f8775cb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-06T22:35:09+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.75.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "608bb091-fb7c-46fe-a700-c8adb042648c",
+      "type": "application",
+      "name": "/reference/apps",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "225c507f-dffb-4b64-9d9e-716db6873f1a",
+      "type": "application",
+      "name": "reference/package-lock.json",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "npm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40azure/functions-extensions-base@0.3.0",
+      "type": "library",
+      "group": "@azure",
+      "name": "functions-extensions-base",
+      "version": "0.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40azure/functions-extensions-base@0.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@azure/functions-extensions-base@0.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "npm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40azure/functions@4.16.1",
+      "type": "library",
+      "group": "@azure",
+      "name": "functions",
+      "version": "4.16.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40azure/functions@4.16.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@azure/functions@4.16.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "npm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40types/node@22.20.0",
+      "type": "library",
+      "group": "@types",
+      "name": "node",
+      "version": "22.20.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/node@22.20.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@types/node@22.20.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "npm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/cookie@0.7.2",
+      "type": "library",
+      "name": "cookie",
+      "version": "0.7.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/cookie@0.7.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "cookie@0.7.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "npm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/typescript@5.9.3",
+      "type": "library",
+      "name": "typescript",
+      "version": "5.9.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/typescript@5.9.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "typescript@5.9.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "npm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/undici-types@6.21.0",
+      "type": "library",
+      "name": "undici-types",
+      "version": "6.21.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/undici-types@6.21.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "undici-types@6.21.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "npm"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "225c507f-dffb-4b64-9d9e-716db6873f1a",
+      "dependsOn": [
+        "pkg:npm/%40azure/functions@4.16.1",
+        "pkg:npm/%40types/node@22.20.0",
+        "pkg:npm/typescript@5.9.3"
+      ]
+    },
+    {
+      "ref": "608bb091-fb7c-46fe-a700-c8adb042648c",
+      "dependsOn": [
+        "225c507f-dffb-4b64-9d9e-716db6873f1a"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40azure/functions-extensions-base@0.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40azure/functions@4.16.1",
+      "dependsOn": [
+        "pkg:npm/%40azure/functions-extensions-base@0.3.0",
+        "pkg:npm/cookie@0.7.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40types/node@22.20.0",
+      "dependsOn": [
+        "pkg:npm/undici-types@6.21.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/cookie@0.7.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/typescript@5.9.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/undici-types@6.21.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

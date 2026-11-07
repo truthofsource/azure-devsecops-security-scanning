@@ -1,0 +1,2948 @@
+{
+    "check_type": "terraform",
+    "results": {
+        "passed_checks": [
+            {
+                "check_id": "CKV_AZURE_190",
+                "bc_check_id": null,
+                "check_name": "Ensure that Storage blobs restrict public access",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "allow_nested_items_to_be_public"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageBlobRestrictPublicAccess",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_44",
+                "bc_check_id": null,
+                "check_name": "Ensure Storage Account is using the latest version of TLS encryption",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "min_tls_version"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountMinimumTlsVersion",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_36",
+                "bc_check_id": null,
+                "check_name": "Ensure 'Trusted Microsoft Services' is enabled for Storage Account access",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountAzureServicesAccessEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_244",
+                "bc_check_id": null,
+                "check_name": "Avoid the use of local users for Azure Storage unless necessary",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "local_user_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageLocalUsers",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_43",
+                "bc_check_id": null,
+                "check_name": "Ensure Storage Accounts adhere to the naming rules",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "name"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountName",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_3",
+                "bc_check_id": null,
+                "check_name": "Ensure that 'enable_https_traffic_only' is enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "enable_https_traffic_only"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountsTransportEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_44",
+                "bc_check_id": null,
+                "check_name": "Ensure Storage Account is using the latest version of TLS encryption",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "min_tls_version"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountMinimumTlsVersion",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_36",
+                "bc_check_id": null,
+                "check_name": "Ensure 'Trusted Microsoft Services' is enabled for Storage Account access",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountAzureServicesAccessEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_244",
+                "bc_check_id": null,
+                "check_name": "Avoid the use of local users for Azure Storage unless necessary",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "local_user_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageLocalUsers",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_43",
+                "bc_check_id": null,
+                "check_name": "Ensure Storage Accounts adhere to the naming rules",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "name"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountName",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_3",
+                "bc_check_id": null,
+                "check_name": "Ensure that 'enable_https_traffic_only' is enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "enable_https_traffic_only"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountsTransportEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_40",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is not configured with Shared Key authorization",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    false
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    false
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "shared_access_key_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_47",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is configured without blob anonymous access",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    false
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    false
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "allow_nested_items_to_be_public"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_41",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is configured with SAS expiration policy",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    false
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    false
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "sas_policy",
+                        "shared_access_key_enabled",
+                        "sas_policy/expiration_period"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            }
+        ],
+        "failed_checks": [
+            {
+                "check_id": "CKV_AZURE_206",
+                "bc_check_id": null,
+                "check_name": "Ensure that Storage Accounts use replication",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "account_replication_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountsUseReplication",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_59",
+                "bc_check_id": null,
+                "check_name": "Ensure that Storage accounts disallow public access",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "public_network_access_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountDisablePublicAccess",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_33",
+                "bc_check_id": null,
+                "check_name": "Ensure Storage logging is enabled for Queue service for read, write and delete requests",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "account_kind"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountLoggingQueueServiceEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_190",
+                "bc_check_id": null,
+                "check_name": "Ensure that Storage blobs restrict public access",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "allow_nested_items_to_be_public"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageBlobRestrictPublicAccess",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_206",
+                "bc_check_id": null,
+                "check_name": "Ensure that Storage Accounts use replication",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "account_replication_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountsUseReplication",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_59",
+                "bc_check_id": null,
+                "check_name": "Ensure that Storage accounts disallow public access",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "public_network_access_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountDisablePublicAccess",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV_AZURE_33",
+                "bc_check_id": null,
+                "check_name": "Ensure Storage logging is enabled for Queue service for read, write and delete requests",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "account_kind"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.azure.StorageAccountLoggingQueueServiceEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_33",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is configured with private endpoint",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    false
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    false
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_33",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is configured with private endpoint",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    true
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    true
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_40",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is not configured with Shared Key authorization",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    true
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    true
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "shared_access_key_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_1",
+                "bc_check_id": null,
+                "check_name": "Ensure storage for critical data are encrypted with Customer Managed Key",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    false
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    false
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "customer_managed_key/key_vault_key_id",
+                        "resource_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_1",
+                "bc_check_id": null,
+                "check_name": "Ensure storage for critical data are encrypted with Customer Managed Key",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    true
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    true
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "customer_managed_key/key_vault_key_id",
+                        "resource_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_47",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is configured without blob anonymous access",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    true
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    true
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "allow_nested_items_to_be_public"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_41",
+                "bc_check_id": null,
+                "check_name": "Ensure storage account is configured with SAS expiration policy",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    true
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    true
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "sas_policy",
+                        "shared_access_key_enabled",
+                        "sas_policy/expiration_period"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_38",
+                "bc_check_id": null,
+                "check_name": "Ensure soft-delete is enabled on Azure storage account",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    false
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    false
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "account_kind",
+                        "blob_properties/delete_retention_policy/days",
+                        "blob_properties/delete_retention_policy"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = false\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = false\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/after/main.tf",
+                "file_abs_path": "/reference/infra/after/main.tf",
+                "repo_file_path": "/reference/infra/after/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/after/main.tf"
+            },
+            {
+                "check_id": "CKV2_AZURE_38",
+                "bc_check_id": null,
+                "check_name": "Ensure soft-delete is enabled on Azure storage account",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "azurerm_storage_account": {
+                            "example": {
+                                "__end_line__": 12,
+                                "__start_line__": 2,
+                                "account_replication_type": [
+                                    "LRS"
+                                ],
+                                "account_tier": [
+                                    "Standard"
+                                ],
+                                "allow_nested_items_to_be_public": [
+                                    true
+                                ],
+                                "location": [
+                                    "eastus2"
+                                ],
+                                "min_tls_version": [
+                                    "TLS1_2"
+                                ],
+                                "name": [
+                                    "examplefixture001"
+                                ],
+                                "public_network_access_enabled": [
+                                    true
+                                ],
+                                "resource_group_name": [
+                                    "rg-example-fixture"
+                                ],
+                                "shared_access_key_enabled": [
+                                    true
+                                ],
+                                "__address__": "azurerm_storage_account.example"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "account_kind",
+                        "blob_properties/delete_retention_policy/days",
+                        "blob_properties/delete_retention_policy"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"azurerm_storage_account\" \"example\" {\n"
+                    ],
+                    [
+                        3,
+                        "  name = \"examplefixture001\"\n"
+                    ],
+                    [
+                        4,
+                        "  resource_group_name = \"rg-example-fixture\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"eastus2\"\n"
+                    ],
+                    [
+                        6,
+                        "  account_tier = \"Standard\"\n"
+                    ],
+                    [
+                        7,
+                        "  account_replication_type = \"LRS\"\n"
+                    ],
+                    [
+                        8,
+                        "  min_tls_version = \"TLS1_2\"\n"
+                    ],
+                    [
+                        9,
+                        "  shared_access_key_enabled = true\n"
+                    ],
+                    [
+                        10,
+                        "  allow_nested_items_to_be_public = true\n"
+                    ],
+                    [
+                        11,
+                        "  public_network_access_enabled = true\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/before/main.tf",
+                "file_abs_path": "/reference/infra/before/main.tf",
+                "repo_file_path": "/reference/infra/before/main.tf",
+                "file_line_range": [
+                    2,
+                    12
+                ],
+                "resource": "azurerm_storage_account.example",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/reference/infra/before/main.tf"
+            }
+        ],
+        "skipped_checks": [],
+        "parsing_errors": []
+    },
+    "summary": {
+        "passed": 14,
+        "failed": 16,
+        "skipped": 0,
+        "parsing_errors": 0,
+        "resource_count": 2,
+        "checkov_version": "3.3.26"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+}

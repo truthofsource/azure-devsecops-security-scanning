@@ -1,0 +1,43 @@
+{
+  "slug": "trufflehog-secret-detection",
+  "tool": "TruffleHog",
+  "title": "TruffleHog Secret Detection and Git History Protection",
+  "tagline": "Deleting a credential from the latest file does not remove it from Git history.",
+  "problem": "A platform repository needed protection against accidentally committed credentials, including values removed in later commits. Scanner output itself could expose candidate secrets, and running PR-supplied tooling or provider verification would create another trust boundary.",
+  "solution": "Run a digest-pinned scanner against exact complete Git history or a bounded PR range, using trusted-base tooling and a read-only network-disabled scanner container. Validate completion and coverage, then publish only safe aggregate counts.",
+  "outcome": "The implementation catches removed history, refuses incomplete coverage and keeps raw candidate fields private. A recorded reconciliation reviewed three detector candidates and confirmed they were public package hashes; it did not create broad secret suppressions.",
+  "strengths": [
+    [
+      "Deleted-history coverage",
+      "Git scanning can find candidate credentials in reachable commits even when the current file has been removed."
+    ],
+    [
+      "Credential-focused detectors",
+      "Purpose-built detectors identify credential formats. Provider verification is an optional tool capability; this implementation disables it and treats matches as candidates."
+    ],
+    [
+      "Safer PR trust boundary",
+      "Trusted scripts/policy, exact base/head coverage and aggregate-only receipts prevent a candidate change from selecting its own scanner decision or leaking raw output."
+    ]
+  ],
+  "limits": [
+    [
+      "A candidate needs review",
+      "A detector match is not proof of a live credential; a public package hash can require independent classification."
+    ],
+    [
+      "Scope is explicit",
+      "A main-history or PR-range scan is not every branch, ref, artifact, image or external mailbox."
+    ],
+    [
+      "Offline means no live validity test",
+      "Network none and no-verification reduce exposure, but cannot establish whether a candidate works against a provider."
+    ]
+  ],
+  "code": "scripts/trufflehog_scan.py",
+  "testcount": "21 passing original contract cases; two optional integration cases are separately recorded",
+  "proof": "The parser demonstration accepts a fictional candidate and emits only counts. A separate real scanner test uses a disposable repository and an unregistered generated key that is committed and deleted; its exact observed outcome is recorded in Validation. No test key or raw scanner output is published.",
+  "version": "3.99.4",
+  "url": "https://github.com/trufflesecurity/trufflehog",
+  "workflow": "reference/workflows/trufflehog-pr.yml.example"
+}

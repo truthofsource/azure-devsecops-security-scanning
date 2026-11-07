@@ -1,0 +1,4 @@
+# Candidate pin verified against the official October 7 release.
+# Before activation: resolve a complete Linux/Python 3.12 hash-locked dependency
+# file as checkov-requirements.txt; do not install this input directly in CI.
+checkov==3.3.26

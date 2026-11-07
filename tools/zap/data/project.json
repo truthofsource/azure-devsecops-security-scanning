@@ -1,0 +1,26 @@
+{
+  "slug": "owasp-zap-authenticated-security",
+  "title": "Authenticated Web and API Security with OWASP ZAP",
+  "tagline": "A sign-in page is not the application. Test the authorized and denied paths behind it.",
+  "problem": "A workforce platform used Microsoft sign-in and role-protected APIs. An anonymous web scan could inspect the public shell yet never reach the routes where staff permissions mattered. Test tokens and response bodies also needed protection from reports.",
+  "solution": "Use a pinned ZAP image and a fixed passive ten-GET matrix for anonymous, Admin and Caregiver-only identities. Verify exact identity/role before protected probes, refuse redirects/arbitrary routes and summarize only fixed alert metadata.",
+  "outcome": "Recorded nonproduction acceptance exercised ten GETs across four handlers, with two informational cache observations and no Low/Medium/High alerts in that bounded sample. It was not whole-application clearance.",
+  "strengths": [
+    [
+      "HTTP behavior",
+      "Inspect real requests/responses, including headers and behavior that package/IaC scanners cannot observe."
+    ],
+    [
+      "Authenticated coverage",
+      "Reach explicitly selected paths after sign-in, then compare authorized and lower-privilege behavior."
+    ],
+    [
+      "Controlled passive testing",
+      "Observe selected traffic without injecting active attack payloads; combine exact role assertions with safe alert summaries."
+    ]
+  ],
+  "code": "scripts/zap_role_matrix.py",
+  "tests": "Nine original Python contract tests passed. The fictional probe exercises the actual ten-request evaluator.",
+  "limit": "No new hosted scan, token collection or Microsoft sign-in was performed. The public target is deliberately api.workforce.invalid.",
+  "diagram": "Browser[Fresh authorized sign-in] --> Token[Private short-lived tokens]\n  Token --> Matrix[Fixed ten-GET matrix]\n  Matrix --> ZAP[Pinned passive ZAP proxy]\n  ZAP --> API[Reviewed API handlers]\n  API --> Claims[Identity / role / expected status]\n  ZAP --> Summary[Alert IDs / risk / counts only]"
+}

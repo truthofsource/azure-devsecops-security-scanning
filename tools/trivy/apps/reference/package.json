@@ -1,0 +1,20 @@
+{
+  "name": "workforce-api-deployment-reference",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal actual platform health handler for Node.js deployment validation.",
+  "main": "dist/src/functions/*.js",
+  "scripts": {
+    "clean": "node scripts/clean.cjs",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "test": "npm run build && node --test test/*.test.cjs",
+    "serve:local": "node scripts/serve-local.cjs"
+  },
+  "dependencies": {
+    "@azure/functions": "4.16.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.0",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,86 @@
+name: TruffleHog PR coverage
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trufflehog-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  secrets:
+    name: Security / secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # Run scanner scripts and policy from the immutable base, not PR data.
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+          lfs: false
+      - name: Scan exact PR history without candidate execution
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # First rollout is explicit: do not silently use a PR-supplied wrapper.
+          test -f trusted/scripts/trufflehog_scan.py
+          git -C candidate checkout -B main "$HEAD_SHA" --quiet
+          python3 -B trusted/scripts/trufflehog_scan.py --repo "$GITHUB_WORKSPACE/candidate" --pr-base "$BASE_SHA" --expected-head "$HEAD_SHA" > "$RUNNER_TEMP/trufflehog-summary.json"
+          cat "$RUNNER_TEMP/trufflehog-summary.json" >> "$GITHUB_STEP_SUMMARY"
+      - name: Retain safe aggregate receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trufflehog-pr-summary-${{ github.event.pull_request.head.sha }}
+          path: ${{ runner.temp }}/trufflehog-summary.json
+          retention-days: 7
+          if-no-files-found: error
+      - name: Block unreviewed candidates with exact trusted PR evidence
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if test -f trusted/scripts/security_gate.py; then
+            python3 -B trusted/scripts/security_gate.py secrets --input "$RUNNER_TEMP/trufflehog-summary.json" --base "$BASE_SHA" --head "$HEAD_SHA"
+          else
+            # Bootstrap uses the existing immutable-base receipt validator.
+            python3 -B - <<'PY'
+          import hashlib,json,os,sys,re
+          from datetime import datetime,timezone
+          from pathlib import Path
+          sys.path.insert(0,str(Path('trusted/scripts').resolve()))
+          import trufflehog_scan as scan
+          r=json.loads((Path(os.environ['RUNNER_TEMP'])/'trufflehog-summary.json').read_text())
+          assert r['schema_version']==3 and r['mode']=='pull_request_range'
+          assert r['base_commit']==os.environ['BASE_SHA'] and r['commit']==os.environ['HEAD_SHA']
+          assert re.fullmatch('[a-f0-9]{40}',r['merge_base'])
+          assert type(r['range_commit_count']) is int and 1 <= r['range_commit_count'] <= 10000
+          assert r['policy_sha256']==hashlib.sha256(scan.POLICY_FILE.read_bytes()).hexdigest()
+          core={k:v for k,v in r.items() if k not in ('base_commit','merge_base','range_commit_count','enforced','outcome')}
+          core.update(schema_version=2,mode='manual_main_history')
+          scan.validate_receipt(core)
+          when=datetime.fromisoformat(r['finished_at_utc'])
+          assert when.utcoffset()==timezone.utc.utcoffset(when) and -60 <= (datetime.now(timezone.utc)-when).total_seconds() <= 86400
+          assert r['scanner']==scan.image_pin()[0] and r['enforced'] is False
+          assert r['outcome']==('review_needed' if r['needs_review'] else 'no_review_candidates')
+          print(json.dumps({'scope':'unreviewed-secret-candidates','blocked':bool(r['needs_review']),'findings':r['needs_review']}))
+          raise SystemExit(int(bool(r['needs_review'])))
+          PY
+          fi

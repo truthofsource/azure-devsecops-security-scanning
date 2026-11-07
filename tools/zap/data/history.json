@@ -1,0 +1,15 @@
+{
+  "observedDate": "2026-11-05",
+  "target": "Recorded bounded nonproduction matrix",
+  "requests": 10,
+  "methods": [
+    "GET"
+  ],
+  "handlers": 4,
+  "lowMediumHighAlerts": 0,
+  "informationalCacheObservations": 2,
+  "activeScan": false,
+  "spider": false,
+  "wholeApplicationClearance": false,
+  "cleanup": "Recorded settings/identity/bindings and paused state restored; tokens/container removed"
+}

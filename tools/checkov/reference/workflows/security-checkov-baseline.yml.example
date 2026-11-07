@@ -1,0 +1,35 @@
+name: Checkov Terraform review
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checkov-baseline
+  cancel-in-progress: false
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install only hash-locked dependencies in an isolated environment
+        run: |
+          python -m venv "$RUNNER_TEMP/checkov"
+          "$RUNNER_TEMP/checkov/bin/python" -m pip install --require-hashes -r security/checkov-requirements.txt
+      - name: Scan tracked Terraform without cloud credentials or external modules
+        run: python3 -B scripts/security_checkov.py --checkov "$RUNNER_TEMP/checkov/bin/checkov" --output "$RUNNER_TEMP/checkov-report"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: checkov-review-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/checkov-report/checkov.json
+            ${{ runner.temp }}/checkov-report/scan.json
+            ${{ runner.temp }}/checkov-report/summary.txt
+          retention-days: 7
+          if-no-files-found: error

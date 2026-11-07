@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-06",
+  "contracts": {
+    "run": 10,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0
+  },
+  "browser": {
+    "strengthCards": 3,
+    "tabs": true,
+    "fictionalExample": true,
+    "datedPlatformEvidence": true,
+    "mobile390": true,
+    "externalRequests": 0,
+    "browserErrors": 0
+  },
+  "scannerExecution": {
+    "scanner": "Checkov",
+    "version": "3.3.26",
+    "target": "Public before/after storage fixtures",
+    "network": "none",
+    "summary": {
+      "passed": 14,
+      "failed": 16,
+      "skipped": 0,
+      "parsing_errors": 0,
+      "resource_count": 2,
+      "checkov_version": "3.3.26"
+    },
+    "checksImproved": [
+      {
+        "checkId": "CKV2_AZURE_40",
+        "name": "Ensure storage account is not configured with Shared Key authorization",
+        "before": "FAILED",
+        "after": "PASSED"
+      },
+      {
+        "checkId": "CKV2_AZURE_41",
+        "name": "Ensure storage account is configured with SAS expiration policy",
+        "before": "FAILED",
+        "after": "PASSED"
+      },
+      {
+        "checkId": "CKV2_AZURE_47",
+        "name": "Ensure storage account is configured without blob anonymous access",
+        "before": "FAILED",
+        "after": "PASSED"
+      },
+      {
+        "checkId": "CKV_AZURE_190",
+        "name": "Ensure that Storage blobs restrict public access",
+        "before": "FAILED",
+        "after": "PASSED"
+      }
+    ],
+    "reportSha256": "eec20f8c83a2e6477787a60e467b0c29f4b04f20e64a70ac6074fa1ebb8729fe",
+    "cloudApplied": false
+  },
+  "cloudChanged": false,
+  "actionsDispatched": false
+}

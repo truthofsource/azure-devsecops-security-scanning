@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-06",
+  "contracts": {
+    "run": 12,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0
+  },
+  "browser": {
+    "strengthCards": 3,
+    "tabs": true,
+    "fictionalExample": true,
+    "datedPlatformEvidence": true,
+    "mobile390": true,
+    "externalRequests": 0,
+    "browserErrors": 0
+  },
+  "scannerExecution": {
+    "scanner": "Trivy",
+    "version": "0.75.0",
+    "target": "Public API reference lockfile and before/after Terraform fixtures",
+    "packageInventory": 6,
+    "vulnerabilityOccurrences": 0,
+    "fixableHighCritical": 0,
+    "configurationResults": 4,
+    "databaseMode": "Existing local DB, update disabled for vulnerability scan",
+    "sbomFormats": [
+      "CycloneDX",
+      "SPDX JSON"
+    ],
+    "cloudApplied": false
+  },
+  "cloudChanged": false,
+  "actionsDispatched": false
+}

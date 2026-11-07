@@ -1,0 +1,37 @@
+name: TruffleHog manual repository baseline
+
+# A maintainer runs this once the implementation is reviewed. It scans the
+# reachable history of main and has no PR, push, or scheduled trigger.
+on:
+  workflow_dispatch:
+    inputs:
+      expected_head:
+        description: Exact reviewed main commit; stop if main has moved
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trufflehog-manual-baseline
+  cancel-in-progress: false
+
+jobs:
+  main-history:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout complete main history
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+          lfs: false
+      - name: Scan reachable main history offline
+        shell: bash
+        env:
+          EXPECTED_HEAD: ${{ inputs.expected_head }}
+        run: python3 -B scripts/trufflehog_scan.py --repo "$GITHUB_WORKSPACE" --expected-head "$EXPECTED_HEAD"

@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-06",
+  "files": [
+    {
+      "source": "scripts/security_checkov.py",
+      "sourceSha256": "59a023a010901d1eb9a669fc1078dff8940acac192b7d5615f9e77092303ac5e",
+      "publicFile": "scripts/security_checkov.py"
+    },
+    {
+      "source": "scripts/test_security_checkov.py",
+      "sourceSha256": "12f52403d23d4f2a26d5c290e0a8e9bcbe748edb04d5088fb99f646769dbb5c7",
+      "publicFile": "scripts/test_security_checkov.py"
+    },
+    {
+      "source": "security/checkov-requirements.in",
+      "sourceSha256": "a14851ae5e78cb07fffb514131bb2657569f72839512dde11acb893be43211c1",
+      "publicFile": "security/checkov-requirements.in"
+    },
+    {
+      "source": "security/checkov-requirements.txt",
+      "sourceSha256": "b17965ac65cfcb74ec126e73404fe1e5f0b9ebb58c2ea0c878390a1cb8d1d743",
+      "publicFile": "security/checkov-requirements.txt"
+    },
+    {
+      "source": ".github/workflows/security-checkov-baseline.yml",
+      "sourceSha256": "59fc61565f62d919e3bed018ff704069a5ac338008b7d1eb08cb58ef6d64da0c",
+      "publicFile": "reference/workflows/security-checkov-baseline.yml.example"
+    },
+    {
+      "source": "docs/security/checkov-current-occurrences-20261105.csv",
+      "sourceSha256": "8dd18462fc7106464518f1886e21429e3834f0ef080a44e46a2f51b3776dd5a3",
+      "publicFile": "data/platform-open-findings.csv"
+    },
+    {
+      "source": "infra/modules/storage/main.tf",
+      "sourceSha256": "d0945df67f544836bc5c9d6abcea6388be7de1f252cafe09c36b826eeaf2b78f",
+      "publicFile": "reference/infra/storage.tf"
+    }
+  ],
+  "adaptations": [
+    "Neutral project labels",
+    "Production workflows retained inert outside .github",
+    "New small local viewer and fixtures"
+  ]
+}

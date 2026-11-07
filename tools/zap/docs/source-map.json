@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-06",
+  "files": [
+    {
+      "source": "scripts/zap_authenticated.py",
+      "sourceSha256": "8d16588e5db02b62c35cb44da86f4aa1a42807018f69d2558f6b4da4548b0d82",
+      "publicFile": "scripts/zap_authenticated.py"
+    },
+    {
+      "source": "scripts/zap_role_matrix.py",
+      "sourceSha256": "8ce0945887f3315b4908f792e01bfb40536369144c1269f80c6c9736f37162f1",
+      "publicFile": "scripts/zap_role_matrix.py"
+    },
+    {
+      "source": "scripts/test_zap_authenticated.py",
+      "sourceSha256": "96aca317c7888c4d7b79594d5877bd9823f61f3404d938551949ac80626e2648",
+      "publicFile": "scripts/test_zap_authenticated.py"
+    },
+    {
+      "source": "scripts/test_security_zap_role_matrix.py",
+      "sourceSha256": "79552bd0a56ad18e0a9e249d8201d1e6dd5a4bb7a737f80831375eda31ef9d71",
+      "publicFile": "scripts/test_security_zap_role_matrix.py"
+    },
+    {
+      "source": "security/zap-lock.json",
+      "sourceSha256": "b2ff494cc528bcea6af143ace2533db6436d77b1b756304cd203d69d37247d48",
+      "publicFile": "security/zap-lock.json"
+    }
+  ],
+  "publicAdaptations": [
+    "Example labels",
+    "New offline viewer/demonstration",
+    "See source-map guide for extracted rule and wrapper boundaries"
+  ]
+}

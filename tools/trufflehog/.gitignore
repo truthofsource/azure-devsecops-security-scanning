@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.terraform/
+*.tfstate*
+*.tfplan
+*.tfvars
+.env
+reports/
+private-evidence/
+scanner-cache/
+node_modules/

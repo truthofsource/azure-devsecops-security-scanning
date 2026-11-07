@@ -1,0 +1,7 @@
+{
+  "version": "3.99.4",
+  "image": "ghcr.io/trufflesecurity/trufflehog@sha256:a3a8f49c82805a99bba4cec01c0cce2f3daeaeb59884eef70aafc88715003d1e",
+  "platform": "linux/amd64",
+  "source": "https://github.com/trufflesecurity/trufflehog/releases/tag/v3.99.4",
+  "digest_observed": "2026-10-22"
+}

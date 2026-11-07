@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-06",
+  "files": [
+    {
+      "source": "scripts/security_scan.py",
+      "sourceSha256": "fa2a14c99f7e1d6b8ab3b496837c051a43864cb293a786b35a278d34a710b285",
+      "publicFile": "scripts/security_scan.py"
+    },
+    {
+      "source": "scripts/security_scope.py",
+      "sourceSha256": "1a0663166ba02525abf1b20a657183ac781ade428bb19bbb9e33555505c3116f",
+      "publicFile": "scripts/security_scope.py"
+    },
+    {
+      "source": "scripts/ci_scope.py",
+      "sourceSha256": "fd30ffa6bbb728e8dd1c6b35c71c76a5e3fcfaee64f17e85b0ec8200f9cfd7b4",
+      "publicFile": "scripts/ci_scope.py"
+    },
+    {
+      "source": "scripts/test_security_scanning.py",
+      "sourceSha256": "bb9485b9639e48951a3218c99d7fd9ecad2275b12b2103ec07dbccc24d864a65",
+      "publicFile": "scripts/test_security_scanning.py"
+    },
+    {
+      "source": "security/scanners.json",
+      "sourceSha256": "31b95084b7204c4cde4d0635afced233b58f053f82bfc4a74f725ee2c7bdc556",
+      "publicFile": "security/scanners.json"
+    },
+    {
+      "source": "security/images.json",
+      "sourceSha256": "8b0cfa8268b16d4eea1e83f496bd81abb7d7cf98f77c210b4cad63c94fa05da2",
+      "publicFile": "security/images.json"
+    },
+    {
+      "source": "security/exceptions.json",
+      "sourceSha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "publicFile": "security/exceptions.json"
+    },
+    {
+      "source": "security/terraform-existing-findings.json",
+      "sourceSha256": "4841f764f4bae17de4038136e815097aabbbf365dac49a222c7c2b2bf669aab4",
+      "publicFile": "security/terraform-existing-findings.json"
+    },
+    {
+      "source": ".github/workflows/security-release.yml",
+      "sourceSha256": "0999de970fc7ac03100e7e3848f0b5c0d5ee4dc49661fe3c282b1db352b9be8d",
+      "publicFile": "reference/workflows/security-release.yml.example"
+    },
+    {
+      "source": "platform/backstage/app/packages/backend/Dockerfile",
+      "sourceSha256": "0e76b273ef43e95edecaa8f879e2c1ac9c853a5c6f29ecff7e184055af56c67d",
+      "publicFile": "reference/containers/Backstage.Dockerfile"
+    },
+    {
+      "source": "infra/modules/storage/main.tf",
+      "sourceSha256": "d0945df67f544836bc5c9d6abcea6388be7de1f252cafe09c36b826eeaf2b78f",
+      "publicFile": "reference/infra/storage.tf"
+    }
+  ],
+  "adaptations": [
+    "Neutral project labels",
+    "Production workflows retained inert outside .github",
+    "New small local viewer and fixtures"
+  ]
+}
