@@ -6,9 +6,11 @@
 
 ## The Business Problem
 
-The platform stores private staff records and supports actions that only certain people should perform. Problems can come from a leaked password, an unsafe cloud setting, insecure software or a website that gives the wrong person access.
+The platform handles private staff records and supports actions with different consequences, from reading a document to changing employee access or processing payroll work. Weaknesses can enter through a leaked credential, a dependency, an infrastructure setting or an application permission error. Each creates a different investigation and repair task.
 
-One tool cannot check all of these. I needed a way to bring the results together and show what was fixed and what still needed attention.
+A single scanner leaves gaps, while disconnected reports make it difficult to see which findings apply to the release being considered. A completed scan can also be mistaken for a clean result. Engineers need to know what was checked, which repairs were tested, what remains unresolved and which changes carry cost or operational consequences.
+
+The business need was a coordinated view of security evidence and follow-up, so release decisions reflect the selected version and known limitations rather than a collection of unrelated green checks.
 
 ## The Solution
 
