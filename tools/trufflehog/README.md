@@ -6,8 +6,6 @@
 
 [Business problem](#the-business-problem) · [Strengths](#where-trufflehog-is-strong) · [Proof](#proof-it-works) · [Commands](docs/COMMANDS.md) · [Step by step](#step-by-step)
 
-![Local scanner reference](docs/images/01-strengths.png)
-
 ## The Business Problem
 
 Engineers work with configuration, deployment scripts and integration code that may reference passwords, tokens or service keys. If a usable credential reaches Git history, deleting it from the newest file leaves older copies available. That can create an access problem even after the visible code looks corrected.
@@ -163,7 +161,7 @@ Remove the entire disposable repository and private report only after saving a v
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -207,16 +205,15 @@ This tool covers one part of security. The other scanners check different areas,
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  Source[Selected source / image / Git history] --> Scope[Validate scope and identity]
-  Trusted[Pinned trusted scanner and policy] --> Scan[Run selected scan]
-  Scope --> Scan
-  Scan --> Raw[Private or controlled raw evidence]
-  Raw --> Complete[Validate coverage / version / completion]
-  Complete --> Decision[Separate findings from execution errors]
-  Decision --> Review[Review / repair / retest / preserve receipt]
-```
+1. **Selected source / image / Git history** → **Validate scope and identity**.
+2. **Pinned trusted scanner and policy** → **Run selected scan**.
+3. **Validate scope and identity** → **Run selected scan**.
+4. **Run selected scan** → **Private or controlled raw evidence**.
+5. **Private or controlled raw evidence** → **Validate coverage / version / completion**.
+6. **Validate coverage / version / completion** → **Separate findings from execution errors**.
+7. **Separate findings from execution errors** → **Review / repair / retest / preserve receipt**.
+
+[View the illustrated project overview](../../docs/diagrams/architecture.svg).
 
 Each scanner checks a different kind of information and needs suitable protection for its reports. TruffleHog 3.99.4 is the selected source pin, not a claim that it is the latest release. [Actual source map](docs/SOURCE-MAP.md).
 
@@ -246,8 +243,6 @@ python -B scripts/demo.py
 
 The parser demonstration accepts a fictional candidate and emits only counts. A separate real scanner test uses a disposable repository and an unregistered generated key that is committed and deleted; its exact observed outcome is recorded in Validation. No test key or raw scanner output is published.
 
-![Example and evidence boundary](docs/images/02-example.png)
-
 Local scans cover only this public reference. Dated platform reports are retained as history; local test-example output does not replace or clear the full platform finding register. No cloud credentials, resource changes or provider credential verification are needed.
 
 ### 3. Follow findings through to a defensible decision
@@ -259,7 +254,6 @@ Keep the target, version, database/policy context and completion evidence. Revie
 The actual implementation rejects incomplete/shallow/rewritten history, unsupported local Git configuration, a moved head and mismatched completion records. PR mode binds base, head and merge base. Raw candidate output and diagnostic files remain private and bounded; the safe parser excludes Raw, Redacted and ExtraData values from its aggregate output.
 
 The public wrapper's allowed origin is changed to this project; it must not be broadened to arbitrary repositories as an unexplained convenience. Exact, expiring suppressions are separate from global scanner ignores. If a real credential is exposed, revoke/rotate it and review usage; removing a file or rewriting history alone does not revoke it.
-
 
 ## Run the Local Viewer
 

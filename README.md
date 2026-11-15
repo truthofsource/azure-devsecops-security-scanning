@@ -1,5 +1,9 @@
 # Layered Security Testing for an Azure Platform
 
+[![Layered security scanning — illustrated overview](docs/diagrams/architecture.png)](docs/diagrams/architecture.svg)
+
+[View SVG](docs/diagrams/architecture.svg) · [Download PNG](docs/diagrams/architecture.png) · [Edit in draw.io](docs/diagrams/architecture.drawio)
+
 **Check for security problems in four different places, then keep track of the fixes.**
 
 [Business problem](#the-business-problem) · [What was built](#what-was-built) · [Proof](#proof-it-works) · [Run the examples](#run-the-examples) · [Step by step](#step-by-step)
@@ -250,7 +254,7 @@ docker network rm my-scanner-net
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -299,18 +303,7 @@ A container is a package used to run an application and its supporting software.
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  Change[Proposed change] --> Secrets[Check for leaked passwords and keys]
-  Change --> Settings[Check cloud setup instructions]
-  Change --> Software[Check software for known weaknesses]
-  Secrets --> Review[Review findings and make fixes]
-  Settings --> Review
-  Software --> Review
-  Review --> Test[Try the change in a test environment]
-  Test --> Website[Check selected website access]
-  Website --> Decide[Record results and decide whether to release]
-```
+[View the illustrated project overview](docs/diagrams/architecture.svg).
 
 This shows how the checks fit together. The guides explain which steps were automated and which required separate review.
 
@@ -357,8 +350,8 @@ The screenshots below are local reference views with fictional data, not Azure p
 
 | Software and infrastructure | Secrets and runtime access |
 | --- | --- |
-| ![Trivy findings reference](tools/trivy/docs/images/01-strengths.png) | ![TruffleHog history reference](tools/trufflehog/docs/images/01-strengths.png) |
-| ![Checkov rule review reference](tools/checkov/docs/images/01-strengths.png) | ![ZAP authenticated check reference](tools/zap/docs/images/01-overview.png) |
+|  |  |
+|  |  |
 
 </details>
 

@@ -6,8 +6,6 @@
 
 [Business problem](#the-business-problem) · [Strengths](#where-checkov-is-strong) · [Proof](#proof-it-works) · [Commands](docs/COMMANDS.md) · [Step by step](#step-by-step)
 
-![Local scanner reference](docs/images/01-strengths.png)
-
 ## The Business Problem
 
 The platform's infrastructure defines how databases, document storage, network access, logging and service identities are configured. As more resources are added, reviewing every setting by hand makes it easier for a risky default or missing control to pass unnoticed into a deployment.
@@ -167,7 +165,7 @@ Create a manual workflow that installs your reviewed tool version, scans this fi
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -211,16 +209,15 @@ This tool covers one part of security. The other scanners check different areas,
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  Source[Selected source / image / Git history] --> Scope[Validate scope and identity]
-  Trusted[Pinned trusted scanner and policy] --> Scan[Run selected scan]
-  Scope --> Scan
-  Scan --> Raw[Private or controlled raw evidence]
-  Raw --> Complete[Validate coverage / version / completion]
-  Complete --> Decision[Separate findings from execution errors]
-  Decision --> Review[Review / repair / retest / preserve receipt]
-```
+1. **Selected source / image / Git history** → **Validate scope and identity**.
+2. **Pinned trusted scanner and policy** → **Run selected scan**.
+3. **Validate scope and identity** → **Run selected scan**.
+4. **Run selected scan** → **Private or controlled raw evidence**.
+5. **Private or controlled raw evidence** → **Validate coverage / version / completion**.
+6. **Validate coverage / version / completion** → **Separate findings from execution errors**.
+7. **Separate findings from execution errors** → **Review / repair / retest / preserve receipt**.
+
+[View the illustrated project overview](../../docs/diagrams/architecture.svg).
 
 Each scanner checks a different kind of information and needs suitable protection for its reports. Checkov 3.3.26 is the selected source pin, not a claim that it is the latest release. [Actual source map](docs/SOURCE-MAP.md).
 
@@ -250,8 +247,6 @@ python -B scripts/demo.py
 
 A fresh network-isolated scan of two public storage fixtures produced 14 passed and 16 failed checks, with no skips or parse errors. Specific rules changed from Failed to Passed after the narrow fixture changes; unresolved controls stayed visible. No Terraform was applied.
 
-![Example and evidence boundary](docs/images/02-example.png)
-
 Local scans cover only this public reference. Dated platform reports are retained as history; local test-example output does not replace or clear the full platform finding register. No cloud credentials, resource changes or provider credential verification are needed.
 
 ### 3. Follow findings through to a defensible decision
@@ -263,7 +258,6 @@ Keep the target, version, database/policy context and completion evidence. Revie
 The [106-occurrence register](data/platform-open-findings.csv) preserves the source resource, rule ID, category, disposition and next evidence. Network controls, logging/retention, key lifecycle and availability/cost remain distinct categories. A source-level graph match is not deployed proof. Paid tiers and additional private endpoints were not activated for scanner score improvements.
 
 The local fixture narrows two storage settings: Shared Key and nested anonymous access. Some related checks improve, but other failures remain. A passing related rule is not a claim that a different feature, such as a SAS policy, was independently deployed.
-
 
 ## Run the Local Viewer
 

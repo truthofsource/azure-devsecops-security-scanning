@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1682" viewBox="0 0 1200 1682" role="img" aria-labelledby="title desc">
+<title id="title">Layered security scanning — illustrated architecture</title>
+<desc id="desc">Actual tool responsibilities and selected runtime checks. Tools inspect different layers. The public manual CI runs reference contracts, not every hosted scanner or Azure deployment.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#586574" /></marker></defs>
+<rect width="1200" height="1682" fill="white" />
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="54" y="36" font-size="12" font-weight="700" letter-spacing="1.8" fill="#617084">PROJECT ARCHITECTURE · ILLUSTRATED OVERVIEW</text>
+<text x="54" y="79" font-size="30" font-weight="700" fill="#172d46">Layered security scanning</text>
+<text x="54" y="110" font-size="16" fill="#526276">Actual tool responsibilities and selected runtime checks</text>
+<path d="M600.0 336 V370.0 H228.66666666666666 V402" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M600.0 336 V370.0 H600.0 V402" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M600.0 336 V370.0 H971.3333333333333 V402" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M228.66666666666666 574 V608.0 H600.0 V640" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M600.0 574 V608.0 H600.0 V640" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M971.3333333333333 574 V608.0 H600.0 V640" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M600.0 812 V846.0 H600.0 V878" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M600.0 1050 V1084.0 H408.0 V1116" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M600.0 1050 V1084.0 H792.0 V1116" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M408.0 1288 V1322.0 H600.0 V1354" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M792.0 1288 V1322.0 H600.0 V1354" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<g data-node="n0_0"><rect x="425.0" y="166" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="582.0" y="178" data-purpose-icon="n0_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7 5-5 7 5 7m10-14 5 7-5 7m-3-16-4 20" /></g></svg>
+<text x="600.0" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Selected source / release</text>
+<text x="600.0" y="266" text-anchor="middle" font-size="14" fill="#40556b">Selects the code and software being checked.</text>
+</g>
+<g data-node="n1_0"><rect x="60.0" y="404" width="337.3333333333333" height="170" rx="7" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="210.66666666666666" y="416" data-purpose-icon="n1_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#745386" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#745386" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6" /><path d="m12 12 10 10m-4-4 3-3m-6 0 3-3M6 6h.1" /></g></svg>
+<text x="228.66666666666666" y="476" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">TruffleHog</text>
+<text x="228.66666666666666" y="504" text-anchor="middle" font-size="14" fill="#40556b">Looks for passwords or keys accidentally</text>
+<text x="228.66666666666666" y="522" text-anchor="middle" font-size="14" fill="#40556b">saved in code.</text>
+</g>
+<g data-node="n1_1"><rect x="431.3333333333333" y="404" width="337.3333333333333" height="170" rx="7" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="582.0" y="416" data-purpose-icon="n1_1"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#996e23" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#996e23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="1" /><path d="M8 2v20M2 9h20M8 15h14M15 9v13M4 5h1m-1 8h1m-1 5h1" /></g></svg>
+<text x="600.0" y="476" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Checkov</text>
+<text x="600.0" y="504" text-anchor="middle" font-size="14" fill="#40556b">Checks cloud setup files for risky</text>
+<text x="600.0" y="522" text-anchor="middle" font-size="14" fill="#40556b">settings.</text>
+</g>
+<g data-node="n1_2"><rect x="802.6666666666666" y="404" width="337.3333333333333" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="953.3333333333333" y="416" data-purpose-icon="n1_2"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 2 7 3v5c0 4-7 8-7 8S2 14 2 10V5l7-3Z" /><circle cx="17" cy="16" r="4" /><path d="m20 19 3 3" /></g></svg>
+<text x="971.3333333333333" y="476" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Trivy</text>
+<text x="971.3333333333333" y="504" text-anchor="middle" font-size="14" fill="#40556b">Looks for known weaknesses in software and</text>
+<text x="971.3333333333333" y="522" text-anchor="middle" font-size="14" fill="#40556b">images.</text>
+</g>
+<g data-node="n2_0"><rect x="425.0" y="642" width="350" height="170" rx="7" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="582.0" y="654" data-purpose-icon="n2_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#996e23" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#996e23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3a6 6 0 0 0-7 7L2 18a3 3 0 0 0 4 4l8-8a6 6 0 0 0 7-7l-4 4-4-4 2-4Z" /></g></svg>
+<text x="600.0" y="714" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Finding review + repairs</text>
+<text x="600.0" y="742" text-anchor="middle" font-size="14" fill="#40556b">Reviews findings, makes repairs and keeps</text>
+<text x="600.0" y="760" text-anchor="middle" font-size="14" fill="#40556b">remaining work visible.</text>
+</g>
+<g data-node="n3_0"><rect x="425.0" y="880" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="582.0" y="892" data-purpose-icon="n3_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2" /><path d="M2 8h20M5 5.5h.1M8 5.5h.1M11 5.5h.1" /></g></svg>
+<text x="600.0" y="952" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Nonproduction application</text>
+<text x="600.0" y="980" text-anchor="middle" font-size="14" fill="#40556b">Provides the selected test release for</text>
+<text x="600.0" y="998" text-anchor="middle" font-size="14" fill="#40556b">signed-in checks.</text>
+</g>
+<g data-node="n4_0"><rect x="233.0" y="1118" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="390.0" y="1130" data-purpose-icon="n4_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6l9-4Z" /></g></svg>
+<text x="408.0" y="1190" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">OWASP ZAP</text>
+<text x="408.0" y="1218" text-anchor="middle" font-size="14" fill="#40556b">Observes selected website requests for</text>
+<text x="408.0" y="1236" text-anchor="middle" font-size="14" fill="#40556b">security concerns.</text>
+</g>
+<g data-node="n4_1"><rect x="617.0" y="1118" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="774.0" y="1130" data-purpose-icon="n4_1"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2" /><path d="M2 8h20M5 5.5h.1M8 5.5h.1M11 5.5h.1" /></g></svg>
+<text x="792.0" y="1190" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Playwright / Chromium</text>
+<text x="792.0" y="1218" text-anchor="middle" font-size="14" fill="#40556b">Checks sign-in, denied access and PDF</text>
+<text x="792.0" y="1236" text-anchor="middle" font-size="14" fill="#40556b">behavior in a browser.</text>
+</g>
+<g data-node="n5_0"><rect x="425.0" y="1356" width="350" height="170" rx="7" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="582.0" y="1368" data-purpose-icon="n5_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#527a50" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#527a50" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h10l5 5v15H5V2Zm10 0v6h5M8 12h9m-9 4h9m-9 4h5" /></g></svg>
+<text x="600.0" y="1428" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Release evidence</text>
+<text x="600.0" y="1456" text-anchor="middle" font-size="14" fill="#40556b">Keeps the results used to judge release</text>
+<text x="600.0" y="1474" text-anchor="middle" font-size="14" fill="#40556b">readiness.</text>
+</g>
+<line x1="54" y1="1554" x2="1146" y2="1554" stroke="#dce2e9" />
+<text x="54" y="1575" font-size="13" fill="#526276">Tools inspect different layers. The public manual CI runs reference contracts, not every hosted scanner or Azure deployment.</text>
+<text x="54" y="1656" font-size="11.5" fill="#687789">truthofsource/azure-devsecops-security-scanning · Purpose icons, not vendor logos or completion status</text></g></svg>

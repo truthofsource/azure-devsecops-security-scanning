@@ -10,7 +10,6 @@ The [106-occurrence register](../data/platform-open-findings.csv) preserves the 
 
 The local fixture narrows two storage settings: Shared Key and nested anonymous access. Some related checks improve, but other failures remain. A passing related rule is not a claim that a different feature, such as a SAS policy, was independently deployed.
 
-
 ## Evidence categories
 
 | Category | Meaning |

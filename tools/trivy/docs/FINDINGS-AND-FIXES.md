@@ -15,7 +15,6 @@ The recorded compatible dependency repairs removed seven reported occurrences wi
 
 The dated source evidence went from 26 Medium/three Low to 21 Medium/one Low occurrences. The seven removed occurrences and exact advisory identifiers are in [the platform finding record](../data/platform-findings.json). Remaining infrastructure findings and expired-baseline state are separate from dependency thresholds. These are recorded source repairs, not a new scan or deployment of every live image.
 
-
 ## Evidence categories
 
 | Category | Meaning |

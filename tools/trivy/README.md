@@ -6,8 +6,6 @@
 
 [Business problem](#the-business-problem) · [Strengths](#where-trivy-is-strong) · [Proof](#proof-it-works) · [Commands](docs/COMMANDS.md) · [Step by step](#step-by-step)
 
-![Local scanner reference](docs/images/01-strengths.png)
-
 ## The Business Problem
 
 The application and its background workers depend on software maintained by other teams, including Node.js packages, Linux components and browser libraries. An engineer may update the application while an older vulnerable package remains inside the worker image, or review an image while missing a dependency used during the build.
@@ -184,7 +182,7 @@ Create a manual workflow that installs your reviewed tool version, scans this fi
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -228,16 +226,15 @@ This tool covers one part of security. The other scanners check different areas,
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  Source[Selected source / image / Git history] --> Scope[Validate scope and identity]
-  Trusted[Pinned trusted scanner and policy] --> Scan[Run selected scan]
-  Scope --> Scan
-  Scan --> Raw[Private or controlled raw evidence]
-  Raw --> Complete[Validate coverage / version / completion]
-  Complete --> Decision[Separate findings from execution errors]
-  Decision --> Review[Review / repair / retest / preserve receipt]
-```
+1. **Selected source / image / Git history** → **Validate scope and identity**.
+2. **Pinned trusted scanner and policy** → **Run selected scan**.
+3. **Validate scope and identity** → **Run selected scan**.
+4. **Run selected scan** → **Private or controlled raw evidence**.
+5. **Private or controlled raw evidence** → **Validate coverage / version / completion**.
+6. **Validate coverage / version / completion** → **Separate findings from execution errors**.
+7. **Separate findings from execution errors** → **Review / repair / retest / preserve receipt**.
+
+[View the illustrated project overview](../../docs/diagrams/architecture.svg).
 
 Each scanner checks a different kind of information and needs suitable protection for its reports. Trivy 0.75.0 is the selected source pin, not a claim that it is the latest release. [Actual source map](docs/SOURCE-MAP.md).
 
@@ -267,8 +264,6 @@ python -B scripts/demo.py
 
 A real local scan of the public API lockfile inventoried six packages and reported zero vulnerabilities against the existing local database. Configuration fixtures were scanned separately, and both CycloneDX and SPDX JSON were generated. The test-only gate demonstration intentionally blocks one fixable High finding while retaining all three raw fixture findings.
 
-![Example and evidence boundary](docs/images/02-example.png)
-
 Local scans cover only this public reference. Dated platform reports are retained as history; local test-example output does not replace or clear the full platform finding register. No cloud credentials, resource changes or provider credential verification are needed.
 
 ### 3. Follow findings through to a defensible decision
@@ -285,7 +280,6 @@ Keep the target, version, database/policy context and completion evidence. Revie
 | postcss-selector-parser | Affected 6.x/7.x lines → their compatible patch | Avoid breaking consumers by imposing one major on every parent |
 
 The dated source evidence went from 26 Medium/three Low to 21 Medium/one Low occurrences. The seven removed occurrences and exact advisory identifiers are in [the platform finding record](data/platform-findings.json). Remaining infrastructure findings and expired-baseline state are separate from dependency thresholds. These are recorded source repairs, not a new scan or deployment of every live image.
-
 
 ## Run the Local Viewer
 

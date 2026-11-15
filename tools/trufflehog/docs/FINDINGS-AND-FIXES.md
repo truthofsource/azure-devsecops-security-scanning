@@ -8,7 +8,6 @@ The actual implementation rejects incomplete/shallow/rewritten history, unsuppor
 
 The public wrapper's allowed origin is changed to this project; it must not be broadened to arbitrary repositories as an unexplained convenience. Exact, expiring suppressions are separate from global scanner ignores. If a real credential is exposed, revoke/rotate it and review usage; removing a file or rewriting history alone does not revoke it.
 
-
 ## Evidence categories
 
 | Category | Meaning |

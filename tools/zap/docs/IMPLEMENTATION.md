@@ -10,5 +10,4 @@ The invalid query/person probes are deliberately expected to return specific Adm
 
 [ZAP authentication documentation](https://www.zaproxy.org/docs/desktop/start/features/authentication/) describes broader authentication options. The selected platform mode uses privately supplied short-lived tokens rather than automating passwords/MFA.
 
-
 No new hosted scan, token collection or Microsoft sign-in was performed. The public target is deliberately api.workforce.invalid.

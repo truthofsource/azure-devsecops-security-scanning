@@ -6,8 +6,6 @@
 
 [Business problem](#the-business-problem) · [Solution](#the-solution) · [Strengths](#engineering-strengths) · [Proof](#proof-it-works) · [Commands](docs/COMMANDS.md) · [Step by step](#step-by-step)
 
-![Local implementation reference](docs/images/01-overview.png)
-
 ## The Business Problem
 
 Different people use the same platform for different work: caregivers submit their records, while HR and administrators review protected employee information. A scan that reaches only the public sign-in page cannot show whether those boundaries still hold after a user signs in.
@@ -183,7 +181,7 @@ docker network rm my-zap-lab
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -226,15 +224,14 @@ A short walkthrough of the process, with technical instructions and evidence lim
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  Browser[Fresh authorized sign-in] --> Token[Private short-lived tokens]
-  Token --> Matrix[Fixed ten-GET matrix]
-  Matrix --> ZAP[Pinned passive ZAP proxy]
-  ZAP --> API[Reviewed API handlers]
-  API --> Claims[Identity / role / expected status]
-  ZAP --> Summary[Alert IDs / risk / counts only]
-```
+1. **Fresh authorized sign-in** → **Private short-lived tokens**.
+2. **Private short-lived tokens** → **Fixed ten-GET matrix**.
+3. **Fixed ten-GET matrix** → **Pinned passive ZAP proxy**.
+4. **Pinned passive ZAP proxy** → **Reviewed API handlers**.
+5. **Reviewed API handlers** → **Identity / role / expected status**.
+6. **Pinned passive ZAP proxy** → **Alert IDs / risk / counts only**.
+
+[View the illustrated project overview](../../docs/diagrams/architecture.svg).
 
 This project is derived from actual workforce-platform implementation. Identifying labels/targets use examples. The local viewer and demonstration are new reference code; [source mapping](docs/SOURCE-MAP.md) identifies the copied/extracted files and limitations.
 
@@ -262,8 +259,6 @@ python -B scripts/demo.py
 
 ### 2. Inspect the decision output
 
-![Working reference example](docs/images/02-example.png)
-
 The output is explicitly fictional and exercises the included logic. A successful rule test or simulation is not a completed real-world operation. No new hosted scan, token collection or Microsoft sign-in was performed. The public target is deliberately api.workforce.invalid.
 
 ### 3. Open the reference viewer
@@ -272,7 +267,7 @@ The output is explicitly fictional and exercises the included logic. A successfu
 python -B scripts/preview.py --port 8139
 ```
 
-Open [the local reference](http://127.0.0.1:8139). Switch between Overview, Working example and Implementation context. Ctrl+C stops it. Screenshots are genuine local captures, not hosted application/Azure Portal screenshots.
+Open [the local reference](http://127.0.0.1:8139). Switch between Overview, Working example and Implementation context. Ctrl+C stops it. Proper application and Azure screenshots are deferred; this remains a runnable local reference.
 
 ## Passive, Active and Authenticated
 
@@ -283,7 +278,6 @@ The implemented adapter sends only a fixed set of GETs, with no spider, active s
 The invalid query/person probes are deliberately expected to return specific Admin error statuses after authorization (400/503), while anonymous and Caregiver calls must be denied (401/403). Those Admin errors are not proof of a successful business operation. This sample does not retrieve real business records or validate every PDF/route.
 
 [ZAP authentication documentation](https://www.zaproxy.org/docs/desktop/start/features/authentication/) describes broader authentication options. The selected platform mode uses privately supplied short-lived tokens rather than automating passwords/MFA.
-
 
 ## Operations, Limits and Growth
 
