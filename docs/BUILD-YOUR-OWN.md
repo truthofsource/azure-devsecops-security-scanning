@@ -81,7 +81,7 @@ resource "azurerm_storage_account" "lab" {
 
 **Where:** Your new app directory.
 
-Create app/server.mjs and app/Dockerfile below. This small local service has no package dependencies; a source scan can correctly report none, while the image still has its own OS/runtime packages to inspect.
+Create app/server.mjs and app/Dockerfile below. This small local service has no package dependencies; a source scan can correctly report none, while the image still has its own OS/runtime packages to inspect. Create the accompanying .dockerignore before building: .gitignore does not restrict the Docker context, and only the listed runtime files are allowed into this example's context.
 
 Create **`app/server.mjs`** with the following contents:
 
@@ -135,6 +135,14 @@ WORKDIR /app
 COPY server.mjs ./
 USER node
 CMD ["node", "server.mjs"]
+```
+
+Create **`app/.dockerignore`** with the following contents:
+
+```dockerignore
+**
+!Dockerfile
+!server.mjs
 ```
 
 **Check before continuing:** You can identify what source/package/image each result belongs to.
@@ -218,5 +226,6 @@ The numbered steps describe a build procedure. Local syntax checks, an accepted 
 - [www.checkov.io — www.checkov.io](https://www.checkov.io/)
 - [github.com — trufflehog](https://github.com/trufflesecurity/trufflehog)
 - [www.zaproxy.org — baseline-scan](https://www.zaproxy.org/docs/docker/baseline-scan/)
+- [docs.docker.com — #dockerignore-files](https://docs.docker.com/build/concepts/context/#dockerignore-files)
 
 The walkthrough layout follows the prerequisites → creation/configuration → test → verification → troubleshooting → cleanup pattern of the [Splunk project reference](https://github.com/davidharris6/splunk-siem-log-analysis). Its Splunk-specific settings are not copied into unrelated projects.
