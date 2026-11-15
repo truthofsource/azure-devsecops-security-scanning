@@ -128,14 +128,23 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(status, {'content-type': 'application/json'});
     res.end(JSON.stringify(value));
   };
+  if (req.method === 'GET' && req.url === '/') {
+    res.writeHead(200, {'content-type': 'text/html; charset=utf-8'});
+    return res.end('<!doctype html><html lang="en"><title>My scanner lab</title><h1>My scanner lab</h1><a href="/api/health">Health</a></html>');
+  }
   if (req.method === 'GET' && req.url === '/api/health')
     return send(200, {service: 'my-api', status: 'ok'});
   if (req.method === 'POST' && req.url === '/api/applications') {
-    let raw = '';
+    if ((req.headers['content-type'] || '').split(';')[0].trim().toLowerCase() !== 'application/json')
+      return send(415, {error: 'Use Content-Type: application/json'});
+    let chunks = [], bytes = 0, tooLarge = false;
     for await (const chunk of req) {
-      raw += chunk;
-      if (Buffer.byteLength(raw) > 4096) return send(413, {error: 'Request too large'});
+      bytes += chunk.length;
+      if (bytes > 4096) { tooLarge = true; chunks = []; }
+      else if (!tooLarge) chunks.push(chunk);
     }
+    if (tooLarge) return send(413, {error: 'Request too large'});
+    const raw = Buffer.concat(chunks).toString('utf8');
     let body;
     try { body = JSON.parse(raw); }
     catch { return send(400, {error: 'Send valid JSON'}); }
@@ -149,6 +158,8 @@ const server = http.createServer(async (req, res) => {
     return send(401, {error: 'Configure and validate staff authentication before enabling this route'});
   return send(404, {error: 'Route not found'});
 });
+server.requestTimeout = 10000;
+server.headersTimeout = 5000;
 server.listen(8080, '0.0.0.0');
 ```
 
@@ -183,7 +194,7 @@ trivy fs --scanners vuln --format json --output reports/trivy-source.json app
 
 **Where:** Your local Docker environment.
 
-Build your own app image and run a Trivy image scan of its exact selected image. Run ZAP baseline against only your local/authorized app using a lab network and retained report, following the separate tool's official invocation.
+Build your own app image and run a Trivy image scan of its exact selected image. Run ZAP baseline against only your local/authorized app using a lab network and retained report, following the separate tool's official invocation. Confirm GET / returns the lab HTML and /api/health returns JSON before running ZAP; a container merely being Running is not an application readiness test.
 
 ```bash
 docker build -t my-scanned-web:lab app
