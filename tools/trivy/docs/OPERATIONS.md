@@ -1,17 +1,13 @@
 # Operating and troubleshooting Trivy
 
-**Terms used here:** An artifact is a file produced for a release, such as an application ZIP or container image. A fixture is test data or a test setup used instead of real business records.
-
-| Symptom | Investigate | Response |
+| Symptom | Investigate | Evidence limit / next step |
 | --- | --- | --- |
-| Empty report | Execution status, expected inventory and target selection | Mark incomplete; do not report zero findings |
-| Version/pin mismatch | Trusted tool image/archive hash and selected policy | Stop before attaching success to the target |
-| New finding after a rescan | Target/database/policy changes and exact occurrence | Review the real difference, not only total count |
-| Findings exit code | Mode-specific documented status and valid report | Distinguish a finding from a runtime/parser failure |
-| Timeout or partial coverage | History/package/module coverage and resource limits | Preserve incomplete state; use a bounded reviewed retry |
-| Possible secret | Private location/owner and credential lifecycle | Keep raw values private; revoke/rotate confirmed exposure |
-| Static configuration disagreement | Exact resource/variable graph and alternate control | Gather evidence; avoid a broad rule suppression |
+| No package results | Confirm distribution metadata and the expected package database were included | Incomplete coverage is not zero vulnerabilities; see the documented Ubuntu inventory incident |
+| Image-source reader fails | Keep the immutable digest and inspect registry-reader authority and the failed reader stage | A Docker-export reader error is not a completed image scan |
+| Fixed source, vulnerable running image | Compare source, built image, scanned digest and deployed binding | A source update does not replace the existing runtime image |
+| Different finding count after rescan | Compare target inventory, tool/advisory database and policy | A smaller count is not automatically the same coverage |
+| Runtime stage builds but browser check is absent | Inspect the selected build target and default verification stage | Do not count a skipped verification stage as a pass |
 
-The project itself does not upload scanner reports to a third party. The raw secret-scanner output is never a public artifact. Public vulnerability/configuration fixtures contain no real targets; actual private platform reports remain outside the repository.
+[Documented troubleshooting lessons](LESSONS-LEARNED.md) explain the historical incidents and their limits. Keep the selected source or digest, tool version, expected coverage, completion status and safe failure stage with the result.
 
-To inspect GitHub integration, use repository Actions Ã¢â€ â€™ the relevant workflow Ã¢â€ â€™ its selected run and safe summary. Review workflow permissions, trusted/candidate checkout identities, selected commit and how long release files are kept. Do not dispatch the production reference files or paste raw findings containing possible credentials into a PR.
+Keep raw possible secrets, tokens, employee data, authenticated browser state and signed URLs out of public reports. Local examples use fictional inputs; live scans and changes require their own intended target and scope. Do not weaken controls or repeat a business operation to obtain a cleaner test result.

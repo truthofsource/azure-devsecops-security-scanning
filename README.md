@@ -413,4 +413,15 @@ A completed scanner command did not establish complete coverage. Other investiga
 
 This public project draws on actual Azure engineering work, with identifying details removed and fictional examples. It contains no employee records or live credentials. Malware scanning of uploaded documents remains a [separate project](https://github.com/truthofsource/secure-serverless-document-processing), because checking a user's file is a different control from checking application releases.
 
-The four original repositories remain available for existing links. This repository is the combined portfolio entry.
+The four tool implementations and their evidence are maintained under tools/. This repository is the combined portfolio entry.
+
+## Consolidated Examples
+
+These related implementations are now maintained here:
+
+- [trivy-vulnerability-management](tools/trivy/README.md)
+- [checkov-azure-infrastructure-security](tools/checkov/README.md)
+- [trufflehog-secret-detection](tools/trufflehog/README.md)
+- [owasp-zap-authenticated-security](tools/zap/README.md)
+
+See [the consolidation guide](docs/CONSOLIDATION.md) for component scope, preserved tests and historical evidence.

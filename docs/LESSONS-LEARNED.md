@@ -46,7 +46,7 @@ The practical sequence is: identify the failing boundary, preserve safe correlat
 
 ## Related project details
 
-- [Trivy coverage details](https://github.com/truthofsource/trivy-vulnerability-management/blob/main/docs/LESSONS-LEARNED.md)
-- [Checkov configuration review](https://github.com/truthofsource/checkov-azure-infrastructure-security/blob/main/docs/LESSONS-LEARNED.md)
-- [TruffleHog candidate classification](https://github.com/truthofsource/trufflehog-secret-detection/blob/main/docs/LESSONS-LEARNED.md)
-- [ZAP observation and PDF checks](https://github.com/truthofsource/owasp-zap-authenticated-security/blob/main/docs/LESSONS-LEARNED.md)
+- [Trivy coverage details](https://github.com/truthofsource/azure-devsecops-security-scanning/blob/main/tools/trivy/docs/LESSONS-LEARNED.md)
+- [Checkov configuration review](https://github.com/truthofsource/azure-devsecops-security-scanning/blob/main/tools/checkov/docs/LESSONS-LEARNED.md)
+- [TruffleHog candidate classification](https://github.com/truthofsource/azure-devsecops-security-scanning/blob/main/tools/trufflehog/docs/LESSONS-LEARNED.md)
+- [ZAP observation and PDF checks](https://github.com/truthofsource/azure-devsecops-security-scanning/blob/main/tools/zap/docs/LESSONS-LEARNED.md)

@@ -1,0 +1,152 @@
+{
+  "source_repository": "trufflehog-secret-detection",
+  "source_commit": "ed2fc7fbabfade4e06637de1e22bb9c9d91f26f1",
+  "destination": "azure-devsecops-security-scanning",
+  "copied_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "e98c0f8b59c57996cca1c3c186f973e6da04f685aeb2c403527b3b10a58aea48"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "2f1586a1f851ed92a0ab77ab9411425038710509b7c9caac1847fa034b5875f1"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "219251669a0aeca52317fb1ace16723b308d5440b22a3fccd9b31d8a39e32215"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b5b77f8ccf46f984566b74a371088e30f2b26fcac581c8249c9acb23a6114507"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "71dc524fa392bb7aa1ed329076a1505d582c675a07649cd2969038e4f0bf6c85"
+    },
+    {
+      "path": "data/platform-findings.json",
+      "sha256": "8a606e1920482a683a84a97cb7f5c60f94c01a42cb169c9be4ccb9d22b21fde0"
+    },
+    {
+      "path": "data/project.json",
+      "sha256": "d259526b31b53cfd1dd5bfb398748b62b3123051d756f243d8a8fe6a42c68b8b"
+    },
+    {
+      "path": "docs/BUILD-YOUR-OWN.md",
+      "sha256": "befff1910350eb7c2563840a7fe8377d39bcfec9cab5c91f61dd0945b5eff2c7"
+    },
+    {
+      "path": "docs/COMMANDS.md",
+      "sha256": "829a97443c341bf8f0a75f4bdb80e7c2569d2143da629cf0306b566cbe4dd323"
+    },
+    {
+      "path": "docs/FINDINGS-AND-FIXES.md",
+      "sha256": "8108846c14faee9c33656822f7b917c14e99c8401afd70722a85159ab077e048"
+    },
+    {
+      "path": "docs/LESSONS-LEARNED.md",
+      "sha256": "e460d4086d3ddf7d8442dcc8a8dac84707b8d19e0579323b853cb6ddf2aa199a"
+    },
+    {
+      "path": "docs/OPERATIONS.md",
+      "sha256": "f2f36fb65ef2b320063da81eb1b8ad86220418dd24aa588833db168d7692c78a"
+    },
+    {
+      "path": "docs/PROCESS.md",
+      "sha256": "180529017f4a65d454205cb86ca238ed4923a7bf2b72261ab65440ad60e7e630"
+    },
+    {
+      "path": "docs/SCALING.md",
+      "sha256": "ae581ad442b17046fafbc7ca39bfa23e7133cde6e9a03e7a5ac7f1209568ec52"
+    },
+    {
+      "path": "docs/SOURCE-MAP.md",
+      "sha256": "73620a49a300b9a524e3e3eda466b0e69ba9400881c46a90389d690fb682215b"
+    },
+    {
+      "path": "docs/STRENGTHS-AND-TRADEOFFS.md",
+      "sha256": "9e724d88308c59e114bd8f4412bdcdaf7ea29bbc3023e8003ee32c00b678acfe"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "0f2b4717c1564cee11555200160c449f56c4d0b4c521f2cf156017194125fdb6"
+    },
+    {
+      "path": "docs/images/01-strengths.png",
+      "sha256": "ed28c2d904eaa6d25e4add48e97491dc320cc82e97c88862047ccce641535296"
+    },
+    {
+      "path": "docs/images/02-example.png",
+      "sha256": "4871c6495794e3d0fbb8f304a077305a456346d6bcb89ff8c6bd1e2e683ccc71"
+    },
+    {
+      "path": "docs/images/03-evidence.png",
+      "sha256": "68136e94a7c1bc172352d18bcb711027498d1ea4ddadb34dcdda3fcb3b987b88"
+    },
+    {
+      "path": "docs/images/04-mobile.png",
+      "sha256": "fbee6dee4c942ceb38f7305d0b821de333bba6e9bfd3b47b9ba9ad3194ba6213"
+    },
+    {
+      "path": "docs/source-map.json",
+      "sha256": "cfe157e3db1ca1b22b62fa38bffdc12c13efab203a2ec0c9e4c2f7cfcc86fe80"
+    },
+    {
+      "path": "docs/validation-results.json",
+      "sha256": "4c35abc120e26c7505c15bd3767e3ede29ec8feabc6038c05ce223c208b1e23c"
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "ad59106b42679015b8b308f7f47b98c0075f36deb6b1da8ad4bf88717b9e575b"
+    },
+    {
+      "path": "reference/workflows/trufflehog-contract-ci.yml.example",
+      "sha256": "9385c6d97929ff12b6e9fef3d1b6a7711cad9635d1a03b2884af1698adba61cd"
+    },
+    {
+      "path": "reference/workflows/trufflehog-manual-baseline.yml.example",
+      "sha256": "840ddc0a4c91d7f0a9acb80d600bba676f6ff9de45c591892cf35164b2959eda"
+    },
+    {
+      "path": "reference/workflows/trufflehog-pr.yml.example",
+      "sha256": "d1868f7e360e47548444ca59b88c0af2fd36481eb505c9f5d521315113deadc0"
+    },
+    {
+      "path": "scripts/demo.py",
+      "sha256": "03ef89d0561661286c4ef236804d631154f265976a39db9be4dbc036949ff57e"
+    },
+    {
+      "path": "scripts/preview.py",
+      "sha256": "9397df08fa79fe411b56719baf8f265cdbc1f8593e2971be624bd9cdc42f2981"
+    },
+    {
+      "path": "scripts/test_trufflehog_pr.py",
+      "sha256": "e7485a8dfae90fe62cd028c88c7877be07d7a03bbf9a6b7b71292b35d2be0e50"
+    },
+    {
+      "path": "scripts/test_trufflehog_scan.py",
+      "sha256": "74853844ee856a02d3d3a86f33a31e78dd2daf4a0ddbab54ed1e7199dc9b3e72"
+    },
+    {
+      "path": "scripts/trufflehog_pr.py",
+      "sha256": "6f4f4384f5de2e305ac49bd37f6460268d042b69db6694dc0d54f186ba1d97b9"
+    },
+    {
+      "path": "scripts/trufflehog_report.py",
+      "sha256": "88e68cd9b0570277a26dfd6b0a00428394e8bf742497c753a89a2a39b9f2fce6"
+    },
+    {
+      "path": "scripts/trufflehog_scan.py",
+      "sha256": "ed64ffa57c827aa12742cc063b8d2d4f3368df21088c7759c1ef9d7b947b09c4"
+    },
+    {
+      "path": "security/trufflehog-lock.json",
+      "sha256": "1e4cc4b0c78ec1965c8c9ef0fd62f6d000637799b7c3ab3012d450353bd891db"
+    },
+    {
+      "path": "security/trufflehog-suppressions.json",
+      "sha256": "389a3fa94ca7fb075ddf71bd6bb7fe1f521c10531c0b6125a5910e811e9ef317"
+    }
+  ],
+  "note": "Source snapshot retained; internal links and location guidance updated separately."
+}

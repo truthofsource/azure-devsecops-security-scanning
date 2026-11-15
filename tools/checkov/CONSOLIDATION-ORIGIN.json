@@ -1,0 +1,160 @@
+{
+  "source_repository": "checkov-azure-infrastructure-security",
+  "source_commit": "fd906b7c4a351817f64b250494429c33fff0ce5f",
+  "destination": "azure-devsecops-security-scanning",
+  "copied_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "e98c0f8b59c57996cca1c3c186f973e6da04f685aeb2c403527b3b10a58aea48"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "7dc3c84ae6675392010be41e6b1d8207d87b786f8faee75ce154162541f078d9"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "219251669a0aeca52317fb1ace16723b308d5440b22a3fccd9b31d8a39e32215"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ea61b189af01928c49f33e624fac368cdb81337b1e3b58efffa8f30f7e31ea2a"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "71dc524fa392bb7aa1ed329076a1505d582c675a07649cd2969038e4f0bf6c85"
+    },
+    {
+      "path": "data/local-checkov-report.json",
+      "sha256": "9a6eb2817e678d1fa038e95242499991b08a8c57323d6d86b00ddd4f42aa6270"
+    },
+    {
+      "path": "data/local-scan-results.json",
+      "sha256": "59e2ba33b8a4dcd6616726894484e2a2d17570798249398c601985545bc60084"
+    },
+    {
+      "path": "data/platform-findings.json",
+      "sha256": "85c311bbf722b6f5145d8234eec5708d6e080c440c2c4f13b04aa17d32f79855"
+    },
+    {
+      "path": "data/platform-open-findings.csv",
+      "sha256": "c148eadd610fce8f46c1c89843d00ccbcef45a7f6ca9500737e1020bdc485a32"
+    },
+    {
+      "path": "data/project.json",
+      "sha256": "bf9dae23ace83aca0585ffef25d58cc3b9a1e58a3618785be654679529909e5f"
+    },
+    {
+      "path": "docs/BUILD-YOUR-OWN.md",
+      "sha256": "63bf11c949fa5b5d0532ef9557ba1eb3180ed528bc23ac4c529eeedfe1ea09c4"
+    },
+    {
+      "path": "docs/COMMANDS.md",
+      "sha256": "fd4189c6b4573320de0b0ded68645d61cd2324178159d8cc66b36850562ac538"
+    },
+    {
+      "path": "docs/FINDINGS-AND-FIXES.md",
+      "sha256": "7487e8c91cc353629a7d5d14bb0757129cf69824136fa02baa3f844cf59a9248"
+    },
+    {
+      "path": "docs/LESSONS-LEARNED.md",
+      "sha256": "c84b968db5372ea8dee5e85d6af1e94aa3bb6255a6ef654e3602e2430416c454"
+    },
+    {
+      "path": "docs/OPERATIONS.md",
+      "sha256": "fbec70751c1c6eec00a3f4a64dc54b89686dc14effc5a31ced0b0c91e122db51"
+    },
+    {
+      "path": "docs/PROCESS.md",
+      "sha256": "ed88fc4e16db98ca4af98529f480637aa3f403f754d9b04290a4bc39fd17e338"
+    },
+    {
+      "path": "docs/SCALING.md",
+      "sha256": "83b13a1accbfa130ab2db4f5a2830a7e075750e24b602b4e684d46ffd24b23d3"
+    },
+    {
+      "path": "docs/SOURCE-MAP.md",
+      "sha256": "ead8b9d39644df4eec49102098976088ed92e522f786d2043d73c22ae3b0484b"
+    },
+    {
+      "path": "docs/STRENGTHS-AND-TRADEOFFS.md",
+      "sha256": "9f44eb277ea0ab62c7a00d8149c63229401d9bb8878204cfbb714932ff80238b"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "871800f656d0b287568dd0be041bc261797c451f344abfb940f01b87eee04952"
+    },
+    {
+      "path": "docs/images/01-strengths.png",
+      "sha256": "2b706365d1fe1c31e6a5a11b071acf6158bf013df1017f19b4be5844ce4a3c48"
+    },
+    {
+      "path": "docs/images/02-example.png",
+      "sha256": "a03408a14096d1fcf101e29508df5cba9988f7777a197247ea52ded23a775ae3"
+    },
+    {
+      "path": "docs/images/03-evidence.png",
+      "sha256": "1b793f4f16199145c8a34eb5e97c40e6f1dcda5ad8b0d9eff15fa2da3e544766"
+    },
+    {
+      "path": "docs/images/04-mobile.png",
+      "sha256": "2eec9da0b38696d55dc0c3841b5df7dd57724cc77b01ac7d04fb3578765f2b42"
+    },
+    {
+      "path": "docs/source-map.json",
+      "sha256": "d81825226780808663826f140ea5a338222b84811ebb6d98b33cacb5f906feef"
+    },
+    {
+      "path": "docs/validation-results.json",
+      "sha256": "f2cdff2e0ff00dba16870fca6ff9605faf1bccbf3315f530fd9979d159cc8761"
+    },
+    {
+      "path": "infra/README.md",
+      "sha256": "c924a83685652bc33b2a4ef7e729787552ece9a3e073602b1156ed7f9b57a91b"
+    },
+    {
+      "path": "infra/after/main.tf",
+      "sha256": "cef76efe1dd2725b0ec29f2e74c51d370b9c8f54557018e88f5731b7ac1ddcf8"
+    },
+    {
+      "path": "infra/before/main.tf",
+      "sha256": "800e89a5fa46c707c475a95b6f952c7354c195472ed8b42a3fad542c1a6d0d33"
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "e9dca6fbe83555e9b5f8fbf21aeb7f4a6cb3407a4467c8c59bea6c15b9ebbf2a"
+    },
+    {
+      "path": "reference/infra/storage.tf",
+      "sha256": "a943e3075da20f17f21ec619eed1405ec827d3185a5714c7c9f03f173828de52"
+    },
+    {
+      "path": "reference/workflows/security-checkov-baseline.yml.example",
+      "sha256": "59fc61565f62d919e3bed018ff704069a5ac338008b7d1eb08cb58ef6d64da0c"
+    },
+    {
+      "path": "scripts/demo.py",
+      "sha256": "b243d1218463319abb6bde85e20fecc05274f9e9463cbd548143d6a8c87a4835"
+    },
+    {
+      "path": "scripts/preview.py",
+      "sha256": "9397df08fa79fe411b56719baf8f265cdbc1f8593e2971be624bd9cdc42f2981"
+    },
+    {
+      "path": "scripts/security_checkov.py",
+      "sha256": "c9c440c8c9120ba945c72f36568995a3aed634e3ae9d1d7f0e74921371ae5449"
+    },
+    {
+      "path": "scripts/test_security_checkov.py",
+      "sha256": "630f7fa94ecab570c927fc8ea356bbaa258b11a779e7dbbda515cc35a7103198"
+    },
+    {
+      "path": "security/checkov-requirements.in",
+      "sha256": "a14851ae5e78cb07fffb514131bb2657569f72839512dde11acb893be43211c1"
+    },
+    {
+      "path": "security/checkov-requirements.txt",
+      "sha256": "b17965ac65cfcb74ec126e73404fe1e5f0b9ebb58c2ea0c878390a1cb8d1d743"
+    }
+  ],
+  "note": "Source snapshot retained; internal links and location guidance updated separately."
+}

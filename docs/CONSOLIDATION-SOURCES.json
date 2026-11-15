@@ -1,7 +1,7 @@
 [
   {
     "component": "trivy",
-    "repository": "https://github.com/truthofsource/trivy-vulnerability-management",
+    "repository": "https://github.com/truthofsource/azure-devsecops-security-scanning/tree/main/tools/trivy",
     "commit": "220db13561d7551008857f8c5871edf17975d6ce",
     "files": [
       {
@@ -188,7 +188,7 @@
   },
   {
     "component": "checkov",
-    "repository": "https://github.com/truthofsource/checkov-azure-infrastructure-security",
+    "repository": "https://github.com/truthofsource/azure-devsecops-security-scanning/tree/main/tools/checkov",
     "commit": "5cb815a1a27ea066330500b7d8cd9f01b1081665",
     "files": [
       {
@@ -339,7 +339,7 @@
   },
   {
     "component": "trufflehog",
-    "repository": "https://github.com/truthofsource/trufflehog-secret-detection",
+    "repository": "https://github.com/truthofsource/azure-devsecops-security-scanning/tree/main/tools/trufflehog",
     "commit": "87702419acbbe349f19aa5103fee64b77618ec94",
     "files": [
       {
@@ -482,7 +482,7 @@
   },
   {
     "component": "zap",
-    "repository": "https://github.com/truthofsource/owasp-zap-authenticated-security",
+    "repository": "https://github.com/truthofsource/azure-devsecops-security-scanning/tree/main/tools/zap",
     "commit": "6f97f215c73ce6707a53bbc9a7324c5bfc468b7b",
     "files": [
       {

@@ -22,7 +22,7 @@ from pathlib import Path
 from trufflehog_report import (MAX_OUTPUT_BYTES, ScanOutputError, load_suppressions,
                               parse_findings, validate_completion)
 
-EXPECTED_REMOTE = "https://github.com/truthofsource/trufflehog-secret-detection.git"
+EXPECTED_REMOTE = "https://github.com/truthofsource/azure-devsecops-security-scanning.git"
 EXPECTED_REMOTES = {EXPECTED_REMOTE, EXPECTED_REMOTE.removesuffix(".git")}
 PIN_FILE = Path(__file__).resolve().parents[1] / "security" / "trufflehog-lock.json"
 POLICY_FILE = Path(__file__).resolve().parents[1] / "security" / "trufflehog-suppressions.json"

@@ -1,0 +1,124 @@
+{
+  "source_repository": "owasp-zap-authenticated-security",
+  "source_commit": "2d2c4287f4f7d6f7c05ece817eb462e6255f02af",
+  "destination": "azure-devsecops-security-scanning",
+  "copied_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "83b9b8b13f4fa07cdba414d702053774bce063c45a5313b1cffefbe6492a458f"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "70d23d16ea872dbb9cf07654881dd35eaac3eca6b34c5fa264607dec14a9aad4"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "8da0f55249ad1148dc90ec3846981023b918750f4a1e4fa6b7227172c892e6e1"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0e960388c50283bd7a2127f2b69f9c4a5d0798795a66aca6d10fe90a5ffa62ec"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "baa57bf1eb77d4d676813badae7fb3be51e8fb31b06f321110a3e8becbd5612d"
+    },
+    {
+      "path": "data/history.json",
+      "sha256": "a17a920fc2d85f69e6ff72c30f10e41f6cb4b76c508243b0e497cd5bbfd5074d"
+    },
+    {
+      "path": "data/project.json",
+      "sha256": "6d067be3afe60f7ff7b1221cf7be7763be503af1af408ff74de9c909f17c9a85"
+    },
+    {
+      "path": "docs/BUILD-YOUR-OWN.md",
+      "sha256": "7726436784c794256386f940e994c1a8e5614e4382e1226bf43400f1b719ae54"
+    },
+    {
+      "path": "docs/COMMANDS.md",
+      "sha256": "99b34512b88d65a93c26d9d81695973ccd121696b7ec4b3bb2f1964c73f8e05e"
+    },
+    {
+      "path": "docs/IMPLEMENTATION.md",
+      "sha256": "e22943b2a7ae1f95918188191ab1b3309f2dcdf28d84af82d81ddc75538becf2"
+    },
+    {
+      "path": "docs/LESSONS-LEARNED.md",
+      "sha256": "8c78f1bfb17ad4e64b17e41bea4e595c8fd7e1484c04a5e2fbd75158848df84e"
+    },
+    {
+      "path": "docs/OPERATIONS-AND-SCALING.md",
+      "sha256": "d01b693854d27eed760e540010d5e867dde04308782b9de9c9ab9fb06d55b39a"
+    },
+    {
+      "path": "docs/OPERATIONS.md",
+      "sha256": "82288e39eacc79e7d0d6517bd35c6527e8043d35af4766d11199e745349fe187"
+    },
+    {
+      "path": "docs/SOURCE-MAP.md",
+      "sha256": "e0ace68eb2d746b4428712f324f9ed75dc7634abfc10eac4e6ff1dc1bf780ad1"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "2b7e7ca3af0e841f391e557ddf5d528d4ab3f684d83790d3ee523ef0a34c1157"
+    },
+    {
+      "path": "docs/images/01-overview.png",
+      "sha256": "c6500335c5d45af9c59bb4251b3124d1cefc05874149f94818ab8c6d7b6398da"
+    },
+    {
+      "path": "docs/images/02-example.png",
+      "sha256": "aef7474efad172625bd55d8f2fbe991f644c2060bdc2a7e9d13bf84e60456145"
+    },
+    {
+      "path": "docs/images/03-context.png",
+      "sha256": "8759d551d2171f5952980167268953899fb44973e2776bb646adec21fc0c783f"
+    },
+    {
+      "path": "docs/images/04-mobile.png",
+      "sha256": "d04023b201e77baec5060c1c8506adf5136fabf069f58f6aa4157b841880ed9c"
+    },
+    {
+      "path": "docs/source-map.json",
+      "sha256": "bb18d9370a54de0a002d6efe1165db08d403a9b4d790dd92671ce6367cd203f1"
+    },
+    {
+      "path": "docs/validation-results.json",
+      "sha256": "dc98ab9b94cc77be064d8386c208ac07dd0819b3bc389cf3692e680b8a2f3a21"
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "6f77f735432331a23b61f655507d4268d73e4b27899719b50e3d730a7351574f"
+    },
+    {
+      "path": "scripts/demo.py",
+      "sha256": "8ed9bec3c47e097999fed0afefb50a561e0f86d5d19319ae063f4532fad45339"
+    },
+    {
+      "path": "scripts/preview.py",
+      "sha256": "67131c8ef280b19cc4d0b3c4518e70fc2851fadbdc1500c5bb13761ac63930e1"
+    },
+    {
+      "path": "scripts/test_security_zap_role_matrix.py",
+      "sha256": "08f3a5e04152449bd5a7ace3191a67ddd6842705c96f3dd7a96c82b29d203404"
+    },
+    {
+      "path": "scripts/test_zap_authenticated.py",
+      "sha256": "d9c3c059ef10bb4b573137278c6d6430a275bee877fec7783683a9456164ef1f"
+    },
+    {
+      "path": "scripts/zap_authenticated.py",
+      "sha256": "9be17881daf5f741d835fea4aa0678a6e3dd6d2f56397b97135b3ab93d987e8f"
+    },
+    {
+      "path": "scripts/zap_role_matrix.py",
+      "sha256": "9170c11d05d7eaf326d85122eac44fb84fd1ffac961f61ff6d855149bb09dde8"
+    },
+    {
+      "path": "security/zap-lock.json",
+      "sha256": "b2ff494cc528bcea6af143ace2533db6436d77b1b756304cd203d69d37247d48"
+    }
+  ],
+  "note": "Source snapshot retained; internal links and location guidance updated separately."
+}

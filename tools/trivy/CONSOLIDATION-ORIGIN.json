@@ -1,0 +1,196 @@
+{
+  "source_repository": "trivy-vulnerability-management",
+  "source_commit": "cdab8a049bfe649b08cdd8dc58106f0ef7a21881",
+  "destination": "azure-devsecops-security-scanning",
+  "copied_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "e98c0f8b59c57996cca1c3c186f973e6da04f685aeb2c403527b3b10a58aea48"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "f481a10b979ffff6ace211cf993cd5e587a0aef9923d0d21021c5f54ced37dc4"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "219251669a0aeca52317fb1ace16723b308d5440b22a3fccd9b31d8a39e32215"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b6dbfca87374e0fe53b2e7024951b4b44cb4d2a9f03308012f9a0145ceea8b14"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "71dc524fa392bb7aa1ed329076a1505d582c675a07649cd2969038e4f0bf6c85"
+    },
+    {
+      "path": "apps/reference/package-lock.json",
+      "sha256": "abed6e062f64fafbc18ee7c88ffd1af5ed9610f5c7425431842abf778eff200d"
+    },
+    {
+      "path": "apps/reference/package.json",
+      "sha256": "7a915232283d3b4dee027063824430bf3d9779d5c8405095407b1e6b0f8da2c7"
+    },
+    {
+      "path": "data/local-config-report.json",
+      "sha256": "caa2412eb974e050eba5b60456e7d3831d49c047d8f11d4dc0019351f991bdb5"
+    },
+    {
+      "path": "data/local-scan-results.json",
+      "sha256": "a50b61b8b1c7f3b1b184623f421cb37aa94363749e72b0c930b628d80777a352"
+    },
+    {
+      "path": "data/local-vulnerability-report.json",
+      "sha256": "16b0baebc0c9cb9d17abc7b6dac190708f304407dec6e38c88cbcbecf3591526"
+    },
+    {
+      "path": "data/platform-findings.json",
+      "sha256": "6d1e047ca3a23c3458176979edafb063ff79c96d5c56b1396d23cd0fbcb4cc01"
+    },
+    {
+      "path": "data/project.json",
+      "sha256": "149b02ecf2ce7970b2da00907607c2c832ea7d90a19d430e049048c1af51a520"
+    },
+    {
+      "path": "data/sbom.cyclonedx.json",
+      "sha256": "2bf844aa8a327c1a29b8a1ad50b7d5e6b0c871e7164b8850d74d6027b12dc259"
+    },
+    {
+      "path": "data/sbom.spdx.json",
+      "sha256": "5f86c0ad1f257bcbc5b0f133b74c25bc03379664214dc0599ceb2502da619e71"
+    },
+    {
+      "path": "docs/BUILD-YOUR-OWN.md",
+      "sha256": "cb55c2cd78b393fd384536706d62ff18f0a2562924c96e4ec15c3c98e57bc6e0"
+    },
+    {
+      "path": "docs/COMMANDS.md",
+      "sha256": "963ab623769b571a0a1bd46bf46662baeefdc26422864086e8f6d3b381ee3696"
+    },
+    {
+      "path": "docs/FINDINGS-AND-FIXES.md",
+      "sha256": "91619906b96ee0e7feb9a91cda7cc6523f49af93cc5c7f944978d1c468343d2e"
+    },
+    {
+      "path": "docs/LESSONS-LEARNED.md",
+      "sha256": "a1748872c525c2bb607ce350283b9848aaa26fdbb5e9912db4ae085398f18688"
+    },
+    {
+      "path": "docs/OPERATIONS.md",
+      "sha256": "209eb0eb598357ae5fc9475702cb333d730a09a72ef329d0b5410fc09f6e2e48"
+    },
+    {
+      "path": "docs/PROCESS.md",
+      "sha256": "2b327ed6fc83152a8c77eb0cfc3c74baaea1cd1c873db69bb0cb5724f31f8d85"
+    },
+    {
+      "path": "docs/SCALING.md",
+      "sha256": "0014536fce950add779d00ca3e6e507e5a3d4778797ec0e50bd47e476e6e3fc6"
+    },
+    {
+      "path": "docs/SOURCE-MAP.md",
+      "sha256": "390741f8c6274aa7c1049103e047bf8282f903c598df13d0a20f80306568fa73"
+    },
+    {
+      "path": "docs/STRENGTHS-AND-TRADEOFFS.md",
+      "sha256": "42da27b96d8f24a285b43f01f5ec3187d259aa1276e7fb4158796772d6431e6d"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "f8054a94d95bbb287ee3d6d7b91c7b6cfb50e0b3b6918cc4f17d677093947463"
+    },
+    {
+      "path": "docs/images/01-strengths.png",
+      "sha256": "c7fc7db918486947ec7f86e7ab0e89f9a1dccedf491b69b6ae5b5bb1a8e5ddcd"
+    },
+    {
+      "path": "docs/images/02-example.png",
+      "sha256": "5dd85ae6d98370b16731609ae99ad2d280ba121f531b6d373bb33074c596fc0e"
+    },
+    {
+      "path": "docs/images/03-evidence.png",
+      "sha256": "ce9f143c67f0b7c3913ee594c68c33da52a99d751d4bc9fa2c66f3e29755cd03"
+    },
+    {
+      "path": "docs/images/04-mobile.png",
+      "sha256": "fca8ed2a767d933627a2652c325ade32a3a979a1598a00380874fcd023ffc522"
+    },
+    {
+      "path": "docs/source-map.json",
+      "sha256": "bd410f7a3181f9c33b1c3d8d565e01146367ef5a997a109c8736179a18f2dd68"
+    },
+    {
+      "path": "docs/validation-results.json",
+      "sha256": "a7347223730b6cbbb4505bd063305b11703cba7f670b53b6cee53722905cb76d"
+    },
+    {
+      "path": "infra/README.md",
+      "sha256": "c924a83685652bc33b2a4ef7e729787552ece9a3e073602b1156ed7f9b57a91b"
+    },
+    {
+      "path": "infra/after/main.tf",
+      "sha256": "cef76efe1dd2725b0ec29f2e74c51d370b9c8f54557018e88f5731b7ac1ddcf8"
+    },
+    {
+      "path": "infra/before/main.tf",
+      "sha256": "800e89a5fa46c707c475a95b6f952c7354c195472ed8b42a3fad542c1a6d0d33"
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "a8dbfbc854c428a47c248a6da4fca836a854b3d17050adcf006b24213f55e98d"
+    },
+    {
+      "path": "reference/containers/Backstage.Dockerfile",
+      "sha256": "0e76b273ef43e95edecaa8f879e2c1ac9c853a5c6f29ecff7e184055af56c67d"
+    },
+    {
+      "path": "reference/infra/storage.tf",
+      "sha256": "a943e3075da20f17f21ec619eed1405ec827d3185a5714c7c9f03f173828de52"
+    },
+    {
+      "path": "reference/workflows/security-release.yml.example",
+      "sha256": "0999de970fc7ac03100e7e3848f0b5c0d5ee4dc49661fe3c282b1db352b9be8d"
+    },
+    {
+      "path": "scripts/ci_scope.py",
+      "sha256": "0df8cb761443a9966229b889697582635c0a870356a199436734b2a75ced3d61"
+    },
+    {
+      "path": "scripts/demo.py",
+      "sha256": "1d7d773d005ba2cca0d19e6c3f185b9fce3ad28b3a30e819e1faf2f7a472929b"
+    },
+    {
+      "path": "scripts/preview.py",
+      "sha256": "9397df08fa79fe411b56719baf8f265cdbc1f8593e2971be624bd9cdc42f2981"
+    },
+    {
+      "path": "scripts/security_scan.py",
+      "sha256": "526919c0f71f6630515e1202b08ab81fceea707b2aa88c510b82f93a692d9a9d"
+    },
+    {
+      "path": "scripts/security_scope.py",
+      "sha256": "07b1fa42d507750f57aaf69f1a92122424074d962fbc8e461ed976e2aa56e1ea"
+    },
+    {
+      "path": "scripts/test_security_scanning.py",
+      "sha256": "8022527481d6f3060b6a47107ec04aa524a1f885592349971a47026e978ba08e"
+    },
+    {
+      "path": "security/exceptions.json",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    {
+      "path": "security/images.json",
+      "sha256": "ad878856cefe02a8fa3f30a1d1449fd3c3c5ce4f47deb911eec4c7956772e292"
+    },
+    {
+      "path": "security/scanners.json",
+      "sha256": "31b95084b7204c4cde4d0635afced233b58f053f82bfc4a74f725ee2c7bdc556"
+    },
+    {
+      "path": "security/terraform-existing-findings.json",
+      "sha256": "e9e4db73fb8e8ebcc071443c98c5060aeb1acafa43fcdc42ba6a7cfd16cf9023"
+    }
+  ],
+  "note": "Source snapshot retained; internal links and location guidance updated separately."
+}
