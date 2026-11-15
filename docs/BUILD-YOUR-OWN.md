@@ -1,6 +1,6 @@
 # Build your own: Layered Security Testing for an Azure Platform
 
-This is a reader-operated build recipe for an independent learning copy. Follow the numbered steps in order and record your own results. The included local implementation is not a complete deployment of the private business platform; cloud extensions are separate and must use your own authorized resources.
+This is a step-by-step build guide for an independent learning copy. Follow the numbered steps in order and record your own results. The included local implementation is not a complete deployment of the private business platform; cloud extensions are separate and must use your own authorized resources.
 
 ## What you will create
 
@@ -52,7 +52,7 @@ done
 
 **Where:** your editor, in your own local copy.
 
-1. Start with [`tools/trivy/data/local-vulnerability-report.json`](../tools/trivy/data/local-vulnerability-report.json) and the matching test or configuration instructions. Add a fictional finding in a learning copy and explain which scanner owns it; keep real secrets and live attack targets out.
+1. Start with [`tools/trivy/scripts/test_security_scanning.py`](../tools/trivy/scripts/test_security_scanning.py) in your own copy. Add a synthetic report inside a new Trivy test and explain which finding blocks the gate; then rerun all four local tool suites. Keep saved scanner reports, real secrets and live web targets out of this exercise.
 2. Save your new case separately from the original acceptance records, then rerun the affected tests and the baseline. Do not edit recorded scanner results, screenshots or validation counts to manufacture a successful outcome.
 
 **Expected result:** you can explain what you changed, why the result changed and which negative case still fails safely. An unexpected failure means investigate the implementation or setup, not remove the failing check.

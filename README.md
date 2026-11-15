@@ -34,9 +34,9 @@ The component folders retain their original source mappings. The tools answer di
 
 ## Step by Step
 
-Build an independent version with the [reader-operated walkthrough](docs/BUILD-YOUR-OWN.md). It gives prerequisites, working locations, numbered actions, source-derived commands, expected results, verification and cleanup.
+Build an independent version with the [step-by-step build guide](docs/BUILD-YOUR-OWN.md). It gives prerequisites, working locations, numbered actions, source-derived commands, expected results, verification and cleanup.
 
-For this project, your working starting point is [`tools/trivy/data/local-vulnerability-report.json`](tools/trivy/data/local-vulnerability-report.json). Expected scope: The four local tool models and triage evidence; actual scanner runs remain a separate stage.
+For this project, your working starting point is [`tools/trivy/scripts/test_security_scanning.py`](tools/trivy/scripts/test_security_scanning.py). Expected scope: The four local tool models and triage evidence; actual scanner runs remain a separate stage.
 
 1. **Create your own workspace.** Copy the project and record the source version before editing.
 2. **Prepare and run the baseline.** Use the documented runtimes and selected dependencies, then run the local checks.
