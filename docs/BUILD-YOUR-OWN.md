@@ -1,103 +1,211 @@
-# Build your own: Layered Security Testing for an Azure Platform
+# Build your own from scratch: Azure Devsecops Security Scanning
 
-This is a step-by-step build guide for an independent learning copy. Follow the numbered steps in order and record your own results. The included local implementation is not a complete deployment of the private business platform; cloud extensions are separate and must use your own authorized resources.
+Your own four-layer security check: secrets, infrastructure settings, package/image vulnerabilities and a running-web baseline.
 
-## What you will create
+Start with a new folder, your own files and your own accounts. The numbered steps below describe the build; no portfolio repository checkout is required. The existing implementation/evidence elsewhere in this repository is a separate reference, not a claim that your new build has already passed.
 
-The four local tool models and triage evidence; actual scanner runs remain a separate stage.
+## Prerequisites
 
-## Prerequisites and working locations
+A new repository, Python, Git, Docker, Terraform and separately installed/reviewed Trivy, Checkov, TruffleHog and ZAP versions. No Azure credential is needed for the source/local web checks.
 
-| Location | What you need |
-| --- | --- |
-| Your workstation | Git and the runtime versions documented in [the command guide](../README.md#run-the-examples); use its package/lockfile instructions. |
-| Bash, Linux or WSL terminal | The commands below use Bash syntax. Prepare Python 3.12; use the project's pinned dependency files. |
-| PowerShell alternative | Use the PowerShell forms in the command guide, or run this Bash recipe in WSL; do not paste Bash loops into PowerShell. |
-| Azure or external service | Not needed for default local tests. Any cloud extension requires your own account, target, permissions, budget and acceptance plan. |
+Use Bash on Linux/macOS/WSL for Bash blocks and PowerShell for PowerShell blocks. Select the tool versions supported by the official sources below, record the versions you actually install and retain generated dependency locks. Cloud resources, scanner downloads, logs and external AI calls can create costs; review the stated scope before enabling them.
 
-Read [the existing validation scope](VALIDATION.md) before running anything. A recorded historical test result is not evidence that your new copy has passed.
+## Create your project folder
 
-## Step 1: Create your own workspace
-
-**Where:** your workstation, in a new project folder.
-
-1. Clone the public source below into a new directory; keep the source attribution and included license terms. This creates your local learning copy, not cloud resources.
-2. Record the selected commit and tool versions before editing. If you later publish a fork, review any origin, hash or target bindings rather than disabling guards to make the fork pass.
+Choose a new folder name. These first commands create a blank project; an optional `git init` gives it its own history. Create parent directories in your editor when a later step introduces a nested file.
 
 ```bash
-git clone https://github.com/truthofsource/azure-devsecops-security-scanning.git
-cd azure-devsecops-security-scanning
-git rev-parse HEAD
-git rev-parse --show-toplevel
-git status --short
+mkdir my-azure-devsecops-security-scanning
+cd my-azure-devsecops-security-scanning
+git init
 ```
 
-**Expected result:** the project files are present and you can identify the starting source. Continue from this repository root unless a command explicitly changes directory.
+Create `.gitignore` before saving credentials or build outputs:
 
-## Step 2: Prepare dependencies and build the local baseline
+```gitignore
+.venv/
+node_modules/
+.env
+.env.*
+local.settings.json
+credentials.json
+token.json
+*.pem
+*.key
+*.tfstate*
+*.tfplan
+.terraform/
+private*/
+captures/
+backups/
+batch.json
+reports/
+out/
+app-config.local.yaml
+```
 
-**Where:** the same workstation terminal.
+The source/file snippets are a starting implementation you type or paste into the named files. Replace `YOUR_*`, names, regions and addresses only with values from your own lab; do not place real client/employee records in a test project. Keep your terminal in this project root unless a step explicitly changes directory.
 
-1. Follow the runtime instructions and install only the dependencies selected by this project's files. Terraform provider downloads, optional browser downloads and scanner databases are separate prerequisites where the detailed guide identifies them.
-2. Run these source-derived baseline commands one at a time and stop on an unexpected failure. Read any skipped integration cases; a skip is not a successful live check.
+Before a first commit, set your own repository-local author with `git config user.name "YOUR_NAME"` and `git config user.email "YOUR_PUBLIC_COMMIT_EMAIL"`. Review `git status --short` and the staged diff before publishing; ignored local files are not a substitute for reviewing what you upload.
+
+## Step 1 — Define what each tool owns
+
+**Where:** A coverage.md file.
+
+Map TruffleHog to secret candidates, Checkov to IaC settings, Trivy to dependencies/images and ZAP to the running web surface. Define severity/exception ownership and make tool failure a separate outcome from findings.
+
+**Check before continuing:** You have four complementary inputs and no claim that one scanner proves complete security.
+
+## Step 2 — Author your infrastructure fixture
+
+**Where:** Your new infra directory.
+
+Create infra/main.tf below. Scan this deliberate weakness without deploying it; later replace the weak TLS setting and compare findings.
+
+Create **`infra/main.tf`** with the following contents:
+
+```hcl
+resource "azurerm_storage_account" "lab" {
+  name                     = "myuniquelabstorage"
+  resource_group_name      = "rg-my-scanner-lab"
+  location                 = "eastus2"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  min_tls_version          = "TLS1_0"
+}
+```
+
+**Check before continuing:** The configuration is your own source input.
+
+## Step 3 — Create your application and dependency input
+
+**Where:** Your new app directory.
+
+Create app/server.mjs and app/Dockerfile below. This small local service has no package dependencies; a source scan can correctly report none, while the image still has its own OS/runtime packages to inspect.
+
+Create **`app/server.mjs`** with the following contents:
+
+```javascript
+import http from 'node:http';
+const server = http.createServer(async (req, res) => {
+  const send = (status, value) => {
+    res.writeHead(status, {'content-type': 'application/json'});
+    res.end(JSON.stringify(value));
+  };
+  if (req.method === 'GET' && req.url === '/api/health')
+    return send(200, {service: 'my-api', status: 'ok'});
+  if (req.method === 'POST' && req.url === '/api/applications') {
+    let raw = '';
+    for await (const chunk of req) {
+      raw += chunk;
+      if (Buffer.byteLength(raw) > 4096) return send(413, {error: 'Request too large'});
+    }
+    let body;
+    try { body = JSON.parse(raw); }
+    catch { return send(400, {error: 'Send valid JSON'}); }
+    if (typeof body?.name !== 'string' || !body.name.trim() ||
+        body.name.length > 100 || typeof body?.email !== 'string' ||
+        body.email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email))
+      return send(422, {error: 'A name and valid email are required'});
+    return send(202, {status: 'validated-not-saved'});
+  }
+  if (req.url === '/api/timesheets')
+    return send(401, {error: 'Configure and validate staff authentication before enabling this route'});
+  return send(404, {error: 'Route not found'});
+});
+server.listen(8080, '0.0.0.0');
+```
+
+Create **`app/Dockerfile`** with the following contents:
+
+```dockerfile
+FROM node:22-bookworm-slim
+WORKDIR /app
+COPY server.mjs ./
+USER node
+CMD ["node", "server.mjs"]
+```
+
+**Check before continuing:** You can identify what source/package/image each result belongs to.
+
+## Step 4 — Run the three source/history controls
+
+**Where:** Your project root.
+
+Run the commands below with your installed versions and keep their exit codes and private raw reports. Findings can produce nonzero statuses; do not use blanket success overrides or upload secret-bearing raw output.
 
 ```bash
-for tool in trufflehog checkov trivy zap; do
-  (cd "tools/$tool" && python3 -B -m unittest discover -s scripts -p 'test_*.py' -v && python3 -B scripts/demo.py) || exit 1
-done
+mkdir -p reports
+trufflehog git "file://$PWD" --no-verification --json > ../private-secret-findings.json
+checkov --directory infra --framework terraform --output json > reports/checkov.json
+trivy fs --scanners vuln --format json --output reports/trivy-source.json app
 ```
 
-**Expected result:** the selected tests finish without unexpected failures, and a demonstration command, where provided, produces fictional local decisions. These commands reproduce the included lab scope; they do not commission the live platform.
+**Check before continuing:** Each tool has an explicit completed/failed result and owned findings.
 
-## Step 3: Make one project-specific change
+## Step 5 — Scan a built image and owned web target
 
-**Where:** your editor, in your own local copy.
+**Where:** Your local Docker environment.
 
-1. Start with [`tools/trivy/scripts/test_security_scanning.py`](../tools/trivy/scripts/test_security_scanning.py) in your own copy. Add a synthetic report inside a new Trivy test and explain which finding blocks the gate; then rerun all four local tool suites. Keep saved scanner reports, real secrets and live web targets out of this exercise.
-2. Save your new case separately from the original acceptance records, then rerun the affected tests and the baseline. Do not edit recorded scanner results, screenshots or validation counts to manufacture a successful outcome.
-
-**Expected result:** you can explain what you changed, why the result changed and which negative case still fails safely. An unexpected failure means investigate the implementation or setup, not remove the failing check.
-
-## Step 4: Verify behavior and capture your own evidence
-
-**Where:** the test output, local viewer where supplied, and your private evidence folder.
-
-1. If the project supplies a viewer, use its startup command in [the command guide](../README.md#run-the-examples); keep long-running preview servers in a separate terminal. Follow its exact loopback address and stop it with Ctrl+C when finished; for a command-line-only example, inspect its terminal output and generated files instead.
-2. Compare your own output with [the proof and limits](../README.md#proof-it-works), then record source version, command, expected result, observed result and unresolved work. Capture screenshots of your own fictional output rather than presenting the existing screenshots as your execution.
-
-**Expected result:** The four local tool models and triage evidence; actual scanner runs remain a separate stage. Your evidence must say whether it covers local logic, a real tool run, a hosted service or a human observation.
-
-### Start the local preview
-
-Open a second terminal in the same repository root printed by `git rev-parse --show-toplevel`. Run the command below from that root, after the baseline has passed; it stays running while you use the preview.
+Build your own app image and run a Trivy image scan of its exact selected image. Run ZAP baseline against only your local/authorized app using a lab network and retained report, following the separate tool's official invocation.
 
 ```bash
-(cd tools/trivy && python3 -B scripts/preview.py --port 8138)
+docker build -t my-scanned-web:lab app
+trivy image --format json --output reports/trivy-image.json my-scanned-web:lab
+docker network create my-scanner-net
+docker run -d --name my-scanned-web --network my-scanner-net my-scanned-web:lab
+# Select a reviewed ZAP image and make reports writable by its runtime user first.
+docker run --rm --network my-scanner-net -v "$PWD/reports:/zap/wrk:rw"   ghcr.io/zaproxy/zaproxy:YOUR_REVIEWED_TAG   zap-baseline.py -t http://my-scanned-web:8080 -r combined-web.html
 ```
 
-Open [http://127.0.0.1:8138](http://127.0.0.1:8138). This is the Trivy component viewer, not a combined scanner dashboard; the other components have their own command guides. The subshell keeps your main working directory unchanged.
+**Check before continuing:** Source, image and web reports are not treated as interchangeable evidence.
 
-The command uses the same Python environment as the baseline where Python is required. This guide uses an explicit virtual-environment executable rather than activating it; when following other project examples that say `python`, use that same executable if the project has a `.venv`. In WSL, keep the clone and its virtual environment in the same Linux environment; do not reuse a Windows `.venv`.
+## Step 6 — Fix and verify one issue per layer
 
-Keep one preview per listening port. Stop your own earlier preview with Ctrl+C before starting another one on that port, or use only a port override documented by the project. If you stop the preview, rerun only its startup command; you do not need to rebuild or redeploy cloud services.
+**Where:** Your source files and report notes.
 
-## Step 5: Plan an independent cloud extension, if needed
+Remove/rotate a genuine secret if one exists, correct an IaC setting, update a selected vulnerable package/image dependency and investigate a web finding. Rescan the same inputs, retaining the original results and explaining any unresolved risk.
 
-**Where:** your own architecture/configuration files first; a separately authorized lab subscription only later.
+**Check before continuing:** Your evidence records specific fixes and remaining findings rather than a blanket secure label.
 
-1. Read the implementation and infrastructure references linked below. Substitute your own names, identities, address ranges and service settings in an isolated environment; a public reference may contain only selected components and is not authority to apply someone else's production state.
-2. List the missing integrations and acceptance checks before deployment: runtime hosting, permissions, network/DNS paths, secrets, source data, notification or provider access as applicable. Keep disabled examples disabled until their specific dependencies, costs and cleanup are understood.
+## Step 7 — Add your own manual CI check
 
-**Expected result:** a scoped extension plan with owners and explicit acceptance criteria, not a claim that the full service is deployed. No cloud `apply`, scanner targeting, paid operation or provider sign-in is implied by the local recipe.
+**Where:** Your own repository → .github/workflows.
 
-- [Validation](VALIDATION.md)
-- [Lessons Learned](LESSONS-LEARNED.md)
+Implement these commands as separate, version-pinned jobs using workflow_dispatch while building the lab. Give source scans read-only repository permissions, isolate web targets, retain only safe artifacts and keep deployment authority separate.
 
-## Step 6: Troubleshoot, close out and explain what you built
+```bash
+docker rm -f my-scanned-web
+docker network rm my-scanner-net
+```
 
-**Where:** your project folder and the operating guide for any environment you actually created.
+**Check before continuing:** The pipeline can run against your own authored files without starting cloud services.
 
-1. Check the failing stage in order: working directory and runtime, dependencies, test input, configuration, then any separately enabled service. Preserve the error and consult the existing troubleshooting lessons before widening permissions or changing the target.
-2. Stop only the viewers/containers you started, retain your useful evidence and remove only resources belonging to your own reviewed lab. A local-only run needs no cloud deletion; if you created cloud resources, verify residual storage/address/monitoring charges rather than assuming compute stop removes all cost.
+## Verification and your own screenshots
 
-**Finish checklist:** explain the business problem, show your own change and verification, describe one failure/recovery case, identify limitations and name the next owner action. Keep credentials and business records out of public commits and screenshots.
+| Evidence | What to record | Your result |
+| --- | --- | --- |
+| New build | Your own files/resource settings and tool versions | Not yet recorded |
+| Working path | The actual successful request, configuration or recovery result | Not yet recorded |
+| Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
+| Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
+
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+
+## Troubleshooting order
+
+1. Confirm the named file, working directory and selected tool/interpreter.
+2. Check the exact input and resource/account selected for the failing step.
+3. Separate identity permission, network/DNS reachability and application validation.
+4. Keep the actual error and reconcile an unknown write outcome before repeating it; do not widen access or repeat paid operations blindly.
+
+The numbered steps describe a build procedure. Local syntax checks, an accepted API request, a completed hosted operation and a human verification are different evidence levels; fill in the verification table with what you actually observed.
+
+## Official implementation references
+
+- [trivy.dev — docs](https://trivy.dev/latest/docs/)
+- [www.checkov.io — www.checkov.io](https://www.checkov.io/)
+- [github.com — trufflehog](https://github.com/trufflesecurity/trufflehog)
+- [www.zaproxy.org — baseline-scan](https://www.zaproxy.org/docs/docker/baseline-scan/)
+
+The walkthrough layout follows the prerequisites → creation/configuration → test → verification → troubleshooting → cleanup pattern of the [Splunk project reference](https://github.com/davidharris6/splunk-siem-log-analysis). Its Splunk-specific settings are not copied into unrelated projects.
