@@ -28,6 +28,7 @@ Read [the existing validation scope](VALIDATION.md) before running anything. A r
 git clone https://github.com/truthofsource/azure-devsecops-security-scanning.git
 cd azure-devsecops-security-scanning
 git rev-parse HEAD
+git rev-parse --show-toplevel
 git status --short
 ```
 
@@ -65,6 +66,20 @@ done
 2. Compare your own output with [the proof and limits](../README.md#proof-it-works), then record source version, command, expected result, observed result and unresolved work. Capture screenshots of your own fictional output rather than presenting the existing screenshots as your execution.
 
 **Expected result:** The four local tool models and triage evidence; actual scanner runs remain a separate stage. Your evidence must say whether it covers local logic, a real tool run, a hosted service or a human observation.
+
+### Start the local preview
+
+Open a second terminal in the same repository root printed by `git rev-parse --show-toplevel`. Run the command below from that root, after the baseline has passed; it stays running while you use the preview.
+
+```bash
+(cd tools/trivy && python3 -B scripts/preview.py --port 8138)
+```
+
+Open [http://127.0.0.1:8138](http://127.0.0.1:8138). This is the Trivy component viewer, not a combined scanner dashboard; the other components have their own command guides. The subshell keeps your main working directory unchanged.
+
+The command uses the same Python environment as the baseline where Python is required. This guide uses an explicit virtual-environment executable rather than activating it; when following other project examples that say `python`, use that same executable if the project has a `.venv`. In WSL, keep the clone and its virtual environment in the same Linux environment; do not reuse a Windows `.venv`.
+
+Keep one preview per listening port. Stop your own earlier preview with Ctrl+C before starting another one on that port, or use only a port override documented by the project. If you stop the preview, rerun only its startup command; you do not need to rebuild or redeploy cloud services.
 
 ## Step 5: Plan an independent cloud extension, if needed
 
