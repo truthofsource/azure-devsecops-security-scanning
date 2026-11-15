@@ -34,6 +34,19 @@ The component folders retain their original source mappings. The tools answer di
 
 ## Step by Step
 
+Build an independent version with the [reader-operated walkthrough](docs/BUILD-YOUR-OWN.md). It gives prerequisites, working locations, numbered actions, source-derived commands, expected results, verification and cleanup.
+
+For this project, your working starting point is [`tools/trivy/data/local-vulnerability-report.json`](tools/trivy/data/local-vulnerability-report.json). Expected scope: The four local tool models and triage evidence; actual scanner runs remain a separate stage.
+
+1. **Create your own workspace.** Copy the project and record the source version before editing.
+2. **Prepare and run the baseline.** Use the documented runtimes and selected dependencies, then run the local checks.
+3. **Make your own change.** Edit a project-specific fixture, configuration or rule and rerun its positive and negative cases.
+4. **Verify and document your result.** Capture your own evidence and distinguish a local example from a live integration.
+5. **Extend and close out deliberately.** Plan any independent cloud work separately and clean up only what you created.
+
+<details>
+<summary>How the underlying platform process works</summary>
+
 A short walkthrough of the process, with technical instructions and evidence limits in the sections below.
 
 1. **Choose the change to check** — Identify the code, cloud setup or application version under review. Keep the results tied to that specific version.
@@ -43,6 +56,8 @@ A short walkthrough of the process, with technical instructions and evidence lim
 3. **Review and repair the findings** — Confirm that each check finished and investigate its findings. Apply suitable fixes and test that the application still works.
 
 4. **Record the release decision** — Keep the results and unresolved work visible to the reviewer. A completed scan supports a decision but does not establish that the whole platform is secure.
+
+</details>
 
 ## What Each Tool Checks
 
