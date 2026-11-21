@@ -232,5 +232,3 @@ The numbered steps describe a build procedure. Local syntax checks, an accepted 
 - [github.com — trufflehog](https://github.com/trufflesecurity/trufflehog)
 - [www.zaproxy.org — baseline-scan](https://www.zaproxy.org/docs/docker/baseline-scan/)
 - [docs.docker.com — #dockerignore-files](https://docs.docker.com/build/concepts/context/#dockerignore-files)
-
-The walkthrough layout follows the prerequisites → creation/configuration → test → verification → troubleshooting → cleanup pattern of the [Splunk project reference](https://github.com/davidharris6/splunk-siem-log-analysis). Its Splunk-specific settings are not copied into unrelated projects.

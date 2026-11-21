@@ -161,5 +161,3 @@ The numbered steps describe a build procedure. Local syntax checks, an accepted 
 
 - [www.zaproxy.org — baseline-scan](https://www.zaproxy.org/docs/docker/baseline-scan/)
 - [www.zaproxy.org — authentication](https://www.zaproxy.org/docs/desktop/start/features/authentication/)
-
-The walkthrough layout follows the prerequisites → creation/configuration → test → verification → troubleshooting → cleanup pattern of the [Splunk project reference](https://github.com/davidharris6/splunk-siem-log-analysis). Its Splunk-specific settings are not copied into unrelated projects.

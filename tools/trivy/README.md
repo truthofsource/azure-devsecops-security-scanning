@@ -197,8 +197,6 @@ The numbered steps describe a build procedure. Local syntax checks, an accepted 
 
 - [trivy.dev — docs](https://trivy.dev/latest/docs/)
 
-The walkthrough layout follows the prerequisites → creation/configuration → test → verification → troubleshooting → cleanup pattern of the [Splunk project reference](https://github.com/davidharris6/splunk-siem-log-analysis). Its Splunk-specific settings are not copied into unrelated projects.
-
 <details>
 <summary>Reference: how the existing platform implementation operates</summary>
 
